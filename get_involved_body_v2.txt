@@ -1,0 +1,508 @@
+<main class="page-wrapper gi-premium-page">
+    <!-- Blob effects -->
+    <div class="gi-global-blob blob-1"></div>
+    <div class="gi-global-blob blob-2"></div>
+    <div class="gi-grain"></div>
+
+    <!-- SECTION 1: HERO SLIDER -->
+    <section class="gi-hero">
+        <div class="gi-slider" id="giSlider">
+            <div class="gi-slide active" style="background-image: url('https://images.unsplash.com/photo-1608342381036-15657da6bf58?w=1920&q=80');"></div>
+            <div class="gi-slide" style="background-image: url('https://images.unsplash.com/photo-1494832944834-a08818c634b0?w=1920&q=80');"></div>
+            <div class="gi-slide" style="background-image: url('https://plus.unsplash.com/premium_photo-1661964379253-dfc38531f6ad?w=1920&q=80');"></div>
+            <div class="gi-slide" style="background-image: url('https://images.unsplash.com/photo-1507427100689-2bf8574e32d4?w=1920&q=80');"></div>
+            <div class="gi-slide" style="background-image: url('https://images.unsplash.com/flagged/photo-1555251255-e9a095d6eb9d?w=1920&q=80');"></div>
+            <div class="gi-slide" style="background-image: url('https://plus.unsplash.com/premium_photo-1683121334505-907a00cf904c?w=1920&q=80');"></div>
+            <div class="gi-slide" style="background-image: url('https://images.unsplash.com/photo-1616680214084-22670de1bc82?w=1920&q=80');"></div>
+            <div class="gi-slide" style="background-image: url('https://plus.unsplash.com/premium_photo-1681152783648-29c9c15b56ed?w=1920&q=80');"></div>
+        </div>
+        <div class="gi-hero-overlay"></div>
+        <div class="container gi-hero-content text-center">
+            <h1 class="gi-h1 reveal">Become The Change.</h1>
+            <p class="gi-sub reveal" style="--d: 0.2s;">Serve Humanity. Create Change. Inspire Hope.</p>
+            <a href="#opportunities" class="btn btn-hprimary magnetic ripple reveal mt-4 btn-explore" style="--d: 0.4s; display: inline-flex;">Explore Opportunities</a>
+        </div>
+    </section>
+
+    <!-- SECTION 2: BE A VOLUNTEER -->
+    <section class="section gi-about" id="volunteer">
+        <div class="container gi-about-grid">
+            <div class="gi-about-left reveal">
+                <div class="img-wrap gi-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1593113540201-968e7ec8ffcd?w=800&q=80" alt="Volunteer impact" class="gi-about-img style-depth" />
+                    <div class="glass-detail-card magnetic">
+                        <span class="gdc-num">10K+</span>
+                        <span class="gdc-text">Lives Impacted</span>
+                    </div>
+                </div>
+            </div>
+            <div class="gi-about-right reveal" style="--d: 0.2s">
+                <div class="eyebrow gi-eyebrow">Join a Movement of Impact</div>
+                <h2 class="gi-about-h2">Be a Volunteer with Act For Change</h2>
+                <div class="gi-about-p-wrapper">
+                    <p class="gi-about-p">
+                        Volunteering is more than just giving your time; it is a profound commitment to humanity. At Act For Change, we believe that every individual has the power to ignite transformational change in society.
+                    </p>
+                    <p class="gi-about-p">
+                        When you choose to serve, you become an essential pillar for marginalized communities. From providing crucial educational support to empowering women and advocating for sustainable environmental practices, your hands and your heart help shape a brighter future.
+                    </p>
+                    <p class="gi-about-p">
+                        Whether you are teaching a child, raising community awareness, or protecting the environment, your humanitarian service ripples through generations. Step forward. Create change. Inspire hope.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: VOLUNTEER REGISTRATION PROCESS -->
+    <section class="section gi-process position-relative overflow-hidden">
+        <div class="container position-relative z-index-2">
+            <div class="section-hdr text-center mb-5">
+                <div class="eyebrow gi-eyebrow reveal">Simple Steps</div>
+                <h2 class="section-h2 reveal" style="--d: 0.1s">Our Registration Process</h2>
+            </div>
+            <div class="process-timeline reveal" style="--d: 0.2s">
+                <div class="pt-line"></div>
+                <!-- Step 1 -->
+                <div class="pt-item">
+                    <div class="pt-node">
+                        <div class="pt-icon-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10.4 12.6a2 2 0 1 1 3 3L8 21l-4 1 1-4Z"/><path d="M20 18v-2a2 2 0 0 0-2-2H6"/><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/></svg>
+                        </div>
+                    </div>
+                    <div class="pt-content luxury-glass magnetic" data-magnetic-strength="0.1">
+                        <div class="pt-step-bg">01</div>
+                        <h3>Fill The Form</h3>
+                        <p>Complete our online specific registration form with your preferred volunteering domain.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="pt-item">
+                     <div class="pt-node">
+                         <div class="pt-icon-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                        </div>
+                    </div>
+                    <div class="pt-content luxury-glass magnetic" data-magnetic-strength="0.1">
+                        <div class="pt-step-bg">02</div>
+                        <h3>Application Verification</h3>
+                        <p>Our team meticulously reviews your application to match your skills with community needs.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="pt-item">
+                     <div class="pt-node">
+                         <div class="pt-icon-wrap">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                         </div>
+                    </div>
+                    <div class="pt-content luxury-glass magnetic" data-magnetic-strength="0.1">
+                        <div class="pt-step-bg">03</div>
+                        <h3>Selection Process</h3>
+                        <p>A brief interactive evaluation or informal interview phase for final alignment.</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="pt-item">
+                    <div class="pt-node">
+                        <div class="pt-icon-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                    </div>
+                    <div class="pt-content luxury-glass magnetic" data-magnetic-strength="0.1">
+                        <div class="pt-step-bg">04</div>
+                        <h3>Confirmation</h3>
+                        <p>Welcome to Act For Change! You receive your onboarding kit and assignment details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: VOLUNTEER OPPORTUNITIES -->
+    <section class="section gi-opportunities w-noise position-relative" id="opportunities">
+        <div class="container">
+            <div class="section-hdr text-center">
+                <h2 class="section-h2 reveal">Volunteer Opportunities</h2>
+                <p class="section-sub reveal" style="--d: 0.1s">Choose a path where your passion meets our purpose.</p>
+            </div>
+            <div class="opp-premium-grid">
+                <!-- Opp 1 -->
+                <div class="opp-card-luxury reveal" style="--d: 0.1s">
+                    <div class="opp-bg-zoom" style="background-image: url('https://images.unsplash.com/photo-1544208575-cf62ba1db2f7?w=800&q=80')"></div>
+                    <div class="opp-glass-veil"></div>
+                    <div class="opp-content-wrap">
+                        <div class="opp-floating-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3>Program Volunteer</h3>
+                        <ul class="opp-premium-list">
+                            <li>Field programs</li>
+                            <li>Education drives</li>
+                            <li>Awareness campaigns</li>
+                            <li>Community engagement</li>
+                        </ul>
+                        <div class="opp-btn-wrap">
+                            <a href="#register" class="btn btn-luxury-glass select-opp" data-type="Program Volunteer">Register Now</a>
+                        </div>
+                    </div>
+                    <div class="opp-gradient-border"></div>
+                </div>
+                <!-- Opp 2 -->
+                <div class="opp-card-luxury reveal" style="--d: 0.2s">
+                    <div class="opp-bg-zoom" style="background-image: url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&q=80')"></div>
+                    <div class="opp-glass-veil"></div>
+                    <div class="opp-content-wrap">
+                        <div class="opp-floating-icon">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <h3>Remote Volunteer</h3>
+                        <ul class="opp-premium-list">
+                            <li>Content writing</li>
+                            <li>Social media</li>
+                            <li>Graphic design</li>
+                            <li>Research &amp; Outreach</li>
+                        </ul>
+                        <div class="opp-btn-wrap">
+                            <a href="#register" class="btn btn-luxury-glass select-opp" data-type="Remote Volunteer">Register Now</a>
+                        </div>
+                    </div>
+                    <div class="opp-gradient-border"></div>
+                </div>
+                <!-- Opp 3 -->
+                <div class="opp-card-luxury reveal" style="--d: 0.3s">
+                    <div class="opp-bg-zoom" style="background-image: url('https://images.unsplash.com/photo-1556761175-5973bd0f3f87?w=800&q=80')"></div>
+                    <div class="opp-glass-veil"></div>
+                    <div class="opp-content-wrap">
+                        <div class="opp-floating-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                        </div>
+                        <h3>Fund Building Volunteer</h3>
+                        <ul class="opp-premium-list">
+                            <li>Fundraising</li>
+                            <li>Sponsor outreach</li>
+                            <li>Partnership development</li>
+                            <li>Campaign support</li>
+                        </ul>
+                        <div class="opp-btn-wrap">
+                            <a href="#register" class="btn btn-luxury-glass select-opp" data-type="Fund Building Volunteer">Register Now</a>
+                        </div>
+                    </div>
+                    <div class="opp-gradient-border"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: DYNAMIC REGISTRATION FORM -->
+    <section class="section gi-form-section position-relative" id="register">
+        <div class="gi-form-bg-blob"></div>
+        <div class="container position-relative z-index-2">
+            <div class="form-wrapper premium-glass reveal">
+                <div class="form-hdr text-center">
+                    <h2>Volunteer Registration</h2>
+                    <p>Join us today to create long-lasting impact.</p>
+                    <div class="form-progress"><div class="fp-bar"></div></div>
+                </div>
+                <form id="volunteerForm" class="gi-form premium-form">
+                    <div class="form-row flex-row">
+                        <div class="input-group floating-label half">
+                            <select id="vType" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="Program Volunteer">Program Volunteer</option>
+                                <option value="Remote Volunteer">Remote Volunteer</option>
+                                <option value="Fund Building Volunteer">Fund Building Volunteer</option>
+                            </select>
+                            <label for="vType">Volunteer Type *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                        <div class="input-group floating-label half">
+                            <select id="vDuration" required>
+                                <option value="" disabled selected hidden></option>
+                                <option value="1 Month">1 Month</option>
+                                <option value="3 Months">3 Months</option>
+                                <option value="6 Months">6 Months</option>
+                                <option value="1 Year+">1 Year+</option>
+                            </select>
+                            <label for="vDuration">Volunteer Duration *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                    </div>
+                    <div class="form-row flex-row">
+                        <div class="input-group floating-label half">
+                            <input type="text" id="vFirstName" required placeholder=" " />
+                            <label for="vFirstName">First Name *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                        <div class="input-group floating-label half">
+                            <input type="text" id="vLastName" required placeholder=" " />
+                            <label for="vLastName">Last Name *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                    </div>
+                    <div class="form-row flex-row">
+                        <div class="input-group floating-label third" style="flex:1;">
+                            <input type="email" id="vEmail" required placeholder=" " />
+                            <label for="vEmail">Email *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                        <div class="input-group floating-label third" style="flex:1;">
+                            <input type="tel" id="vPhone" required placeholder=" " />
+                            <label for="vPhone">Phone *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                        <div class="input-group floating-label third" style="flex:1;">
+                            <input type="date" id="vDob" required placeholder=" " />
+                            <label for="vDob" class="active">Date Of Birth *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                    </div>
+                    <div class="form-row flex-row">
+                        <div class="input-group floating-label quarter" style="flex:1;">
+                            <input type="text" id="vCountry" required placeholder=" " />
+                            <label for="vCountry">Country *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                        <div class="input-group floating-label quarter" style="flex:1;">
+                            <input type="text" id="vState" required placeholder=" " />
+                            <label for="vState">State *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                        <div class="input-group floating-label quarter" style="flex:1;">
+                            <input type="text" id="vCity" required placeholder=" " />
+                            <label for="vCity">City *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                        <div class="input-group floating-label quarter" style="flex:1;">
+                            <input type="text" id="vPincode" required placeholder=" " />
+                            <label for="vPincode">Pincode *</label>
+                            <div class="input-bg"></div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group floating-label full-width">
+                            <textarea id="vMessage" rows="4" placeholder=" " style="resize: vertical; font-family: var(--font-body);"></textarea>
+                            <label for="vMessage">Message</label>
+                            <div class="input-bg"></div>
+                        </div>
+                    </div>
+                    <div class="form-row pt-2 pl-2">
+                        <div class="checkbox-group premium-checkbox">
+                            <input type="checkbox" id="vTerms" required />
+                            <label for="vTerms">I agree to the Terms & Conditions and understand this is an unpaid volunteering opportunity designed to create social impact.</label>
+                        </div>
+                    </div>
+                    <div class="form-row text-center mt-5">
+                        <button type="submit" class="btn btn-hprimary magnetic ripple premium-submit" style="min-width: 240px; padding: 18px 36px">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: VOLUNTEER TESTIMONIALS -->
+    <section class="section gi-testimonials-premium position-relative">
+        <div class="gi-testi-bg-split"></div>
+        <div class="gi-testi-decorative-blob-1"></div>
+        <div class="gi-testi-decorative-blob-2"></div>
+        <div class="container container-relative z-index-2">
+            <div class="section-hdr text-center">
+                <h2 class="section-h2 reveal text-white" style="text-shadow: 0 4px 20px rgba(0,0,0,0.5);">Why Volunteers Choose Act For Change</h2>
+            </div>
+            
+            <div class="premium-carousel-wrap reveal" style="--d: 0.1s">
+                <div class="vt-track" id="vtTrack">
+                    <!-- Card 1 -->
+                    <div class="vt-card luxury-glass">
+                        <div class="quote-mark">“</div>
+                        <p class="vt-text">"Volunteering here entirely changed my perspective on life. Seeing the direct impact of our educational camps on children’s faces is priceless."</p>
+                        <div class="vt-author-premium">
+                            <div class="auth-img"><img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Anita Sharma" /></div>
+                            <div class="auth-info">
+                                <h4>Anita Sharma</h4>
+                                <span>Program Volunteer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="vt-card luxury-glass">
+                        <div class="quote-mark">“</div>
+                        <p class="vt-text">"The remote program allowed me to contribute my design skills from home. It's a highly structured organization where your work genuinely empowers communities."</p>
+                        <div class="vt-author-premium">
+                            <div class="auth-img"><img src="https://i.pravatar.cc/150?u=a042581f4e29026704e" alt="Rahul Verma" /></div>
+                            <div class="auth-info">
+                                <h4>Rahul Verma</h4>
+                                <span>Remote Volunteer</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="vt-card luxury-glass">
+                        <div class="quote-mark">“</div>
+                        <p class="vt-text">"Engaging in fundraising campaigns taught me immense empathy and leadership. The team is supportive and the mission is clear as day."</p>
+                        <div class="vt-author-premium">
+                            <div class="auth-img"><img src="https://i.pravatar.cc/150?u=a042581f4e29026704f" alt="Siddharth Roy" /></div>
+                            <div class="auth-info">
+                                <h4>Siddharth Roy</h4>
+                                <span>Fund Building Volunteer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-controls flex-center mt-5">
+                    <button class="pt-btn magnetic ripple" id="vtPrev" aria-label="Previous">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    </button>
+                    <div class="pt-dots" id="vtDots"></div>
+                     <button class="pt-btn magnetic ripple" id="vtNext" aria-label="Next">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: MEET OUR VOLUNTEERS -->
+    <section class="section gi-meet-vols editorial">
+        <div class="container">
+            <div class="section-hdr text-center mb-5">
+                <h2 class="section-h2 reveal">Meet Our Everyday Heroes</h2>
+                <p class="section-sub reveal" style="--d: 0.1s">The passionate souls driving our humanitarian mission.</p>
+            </div>
+            <div class="mv-editorial-grid">
+                <!-- V1 -->
+                <div class="mv-editorial-card reveal" style="--d: 0.1s">
+                    <div class="mv-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80" alt="Priya Desai" />
+                        <div class="mv-spotlight"></div>
+                        <div class="mv-socials">
+                            <a href="#">In</a>
+                            <a href="#">Tw</a>
+                        </div>
+                    </div>
+                    <div class="mv-info text-center mt-4">
+                        <h4>Priya Desai</h4>
+                        <span class="mv-role">Student Volunteer</span>
+                        <p class="mv-quote">"Giving back brings me peace."</p>
+                    </div>
+                </div>
+                <!-- V2 -->
+                <div class="mv-editorial-card reveal" style="--d: 0.15s">
+                    <div class="mv-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80" alt="Vikram Singh" />
+                        <div class="mv-spotlight"></div>
+                         <div class="mv-socials">
+                            <a href="#">In</a>
+                        </div>
+                    </div>
+                    <div class="mv-info text-center mt-4">
+                        <h4>Vikram Singh</h4>
+                        <span class="mv-role">Program Volunteer</span>
+                        <p class="mv-quote">"Fieldwork is where change happens."</p>
+                    </div>
+                </div>
+                <!-- V3 -->
+                <div class="mv-editorial-card reveal" style="--d: 0.2s">
+                    <div class="mv-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80" alt="Neha Kapoor" />
+                        <div class="mv-spotlight"></div>
+                         <div class="mv-socials">
+                            <a href="#">In</a>
+                            <a href="#">Fb</a>
+                        </div>
+                    </div>
+                    <div class="mv-info text-center mt-4">
+                        <h4>Neha Kapoor</h4>
+                        <span class="mv-role">Remote Volunteer</span>
+                        <p class="mv-quote">"Creating impact through digital advocacy."</p>
+                    </div>
+                </div>
+                <!-- V4 -->
+                <div class="mv-editorial-card reveal" style="--d: 0.25s">
+                    <div class="mv-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Aman Gupta" />
+                        <div class="mv-spotlight"></div>
+                         <div class="mv-socials">
+                            <a href="#">In</a>
+                        </div>
+                    </div>
+                    <div class="mv-info text-center mt-4">
+                        <h4>Aman Gupta</h4>
+                        <span class="mv-role">Campaign Volunteer</span>
+                        <p class="mv-quote">"Building networks for a better tomorrow."</p>
+                    </div>
+                </div>
+                <!-- V5 -->
+                <div class="mv-editorial-card reveal" style="--d: 0.3s">
+                    <div class="mv-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt="Roshni Das" />
+                        <div class="mv-spotlight"></div>
+                         <div class="mv-socials">
+                            <a href="#">In</a>
+                            <a href="#">Tw</a>
+                        </div>
+                    </div>
+                    <div class="mv-info text-center mt-4">
+                        <h4>Roshni Das</h4>
+                        <span class="mv-role">Community Volunteer</span>
+                        <p class="mv-quote">"Our true strength lies in our unity."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: NGO QUOTE BANNER -->
+    <section class="gi-quote-banner position-relative overflow-hidden">
+        <div class="gi-qb-bg-zoom" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=80');"></div>
+        <div class="gi-qb-overlay-gradient"></div>
+        <div class="container text-center gi-qb-content relative">
+             <h2 class="reveal cinematic-quote">
+                <span class="d-block block-1">One Volunteer.</span>
+                <span class="d-block block-2">One Act.</span>
+                <span class="d-block block-3">One Life Changed Forever.</span>
+            </h2>
+            <a href="#register" class="btn btn-luxury-glass btn-large ripple magnetic reveal mt-5" style="--d: 0.6s; display: inline-flex;">Become A Volunteer</a>
+        </div>
+    </section>
+
+    <!-- SECTION 9: OUR NGO PARTNERS -->
+    <section class="section gi-partners overflow-hidden pt-6 pb-6" id="partner" style="background:var(--cream);">
+        <div class="container text-center">
+            <div class="eyebrow reveal" style="color:var(--orange);">A Network of Support</div>
+            <h2 class="section-h2 reveal" style="--d: 0.1s; margin-bottom:0;">Our Trusted Partners</h2>
+        </div>
+        <div class="marquee-wrapper premium-marquee reveal" style="--d: 0.2s">
+            <div class="marquee-track">
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/unicef.org" alt="Unicef" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/who.int" alt="WHO" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/rotary.org" alt="Rotary" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/amnesty.org" alt="Amnesty" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/wwf.org" alt="WWF" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/greenpeace.org" alt="Greenpeace" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/redcross.org" alt="Redcross" onerror="this.src='logo.png'" /></div>
+                <!-- Repeat for seamless scrolling -->
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/unicef.org" alt="Unicef" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/who.int" alt="WHO" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/rotary.org" alt="Rotary" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/amnesty.org" alt="Amnesty" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/wwf.org" alt="WWF" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/greenpeace.org" alt="Greenpeace" onerror="this.src='logo.png'" /></div>
+                <div class="marquee-logo"><img src="https://logo.clearbit.com/redcross.org" alt="Redcross" onerror="this.src='logo.png'" /></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: FAQ SECTION -->
+    <section class="section gi-faq pb-6 pt-6">
+        <div class="container">
+            <div class="section-hdr text-center mb-5">
+                <h2 class="section-h2 reveal">Frequently Asked Questions</h2>
+                <p class="section-sub reveal" style="--d: 0.1s">Everything you need to know about volunteering with us.</p>
+            </div>
+            <div class="faq-container-premium reveal mx-auto" style="--d: 0.2s; max-width: 860px;" id="giFaqList">
+                <!-- FAQs will be injected via JS -->
+            </div>
+        </div>
+    </section>
+</main>

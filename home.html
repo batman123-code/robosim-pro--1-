@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Act for Change — Transforming Communities Since 2013</title>
+    <meta
+      name="description"
+      content="Act for Change is a Kolkata-based NGO dedicated to education, healthcare, women's empowerment, and sustainable community development."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" id="cursor" aria-hidden="true"></div>
+    <div class="scroll-bar" id="scrollBar" aria-hidden="true"></div>
+
+    <!-- LOADER -->
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader-inner">
+        <img src="logo.png" alt="Act for Change" class="loader-logo" />
+        <div class="loader-ring"></div>
+        <div class="loader-track">
+          <div class="loader-fill" id="loaderFill"></div>
+        </div>
+        <p class="loader-copy">Turning compassion into action…</p>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="nav" id="nav" role="navigation" aria-label="Main">
+      <div class="nav-inner">
+        <a href="home.html" class="nav-brand" aria-label="Act for Change home">
+          <img src="logo.png" alt="Act for Change" class="nav-logo" />
+          <span class="nav-brand-text">Act For Change</span>
+        </a>
+
+        <ul class="nav-list" id="navList" role="list">
+          <li><a href="home.html" class="nav-a active">Home</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="who-we-are.html" class="nav-a">Who We Are</a>
+            <div class="nav-dropdown">
+              <a href="who-we-are.html#about" class="dropdown-link">About Us</a>
+              <a href="who-we-are.html#board" class="dropdown-link"
+                >Board of Directors</a
+              >
+              <a href="who-we-are.html#team" class="dropdown-link">Our Team</a>
+              <a href="who-we-are.html#vision" class="dropdown-link"
+                >Vision and Mission</a
+              >
+            </div>
+          </li>
+
+          <li><a href="#programs" class="nav-a">Our Programmes</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="get-involved.html" class="nav-a">Get Involved</a>
+            <div class="nav-dropdown">
+              <a href="get-involved.html#volunteer" class="dropdown-link"
+                >Be a Volunteer</a
+              >
+              <a href="get-involved.html#devotee" class="dropdown-link"
+                >Join as Devotee</a
+              >
+              <a href="get-involved.html#partner" class="dropdown-link"
+                >Partner</a
+              >
+              <a href="get-involved.html#career" class="dropdown-link"
+                >Career</a
+              >
+            </div>
+          </li>
+
+          <li>
+            <a href="awards-and-certificates.html" class="nav-a"
+              >Awards and Certificates</a
+            >
+          </li>
+          <li><a href="events.html" class="nav-a">Events</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="#resources" class="nav-a">Resources</a>
+            <div class="nav-dropdown">
+              <a href="#gallery" class="dropdown-link">Gallery</a>
+              <a href="stories.html" class="dropdown-link">Stories</a>
+              <a href="#donors" class="dropdown-link">Donors Speak</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="nav-end">
+          <a href="donate.html" class="btn btn-donate magnetic ripple"
+            >Donate</a
+          >
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile overlay -->
+      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <div class="mobile-nav-scroll">
+          <ul role="list">
+            <li><a href="home.html" class="nav-a" data-close>Home</a></li>
+            <li>
+              <a href="who-we-are.html" class="nav-a">Who We Are</a>
+              <div class="mobile-dropdown-menu">
+                <a href="who-we-are.html#about" data-close>About Us</a>
+                <a href="who-we-are.html#board" data-close
+                  >Board of Directors</a
+                >
+                <a href="who-we-are.html#team" data-close>Our Team</a>
+                <a href="who-we-are.html#vision" data-close
+                  >Vision and Mission</a
+                >
+              </div>
+            </li>
+            <li>
+              <a href="#programs" class="nav-a" data-close>Our Programmes</a>
+            </li>
+            <li>
+              <a href="get-involved.html" class="nav-a">Get Involved</a>
+              <div class="mobile-dropdown-menu">
+                <a href="get-involved.html#volunteer" data-close
+                  >Be a Volunteer</a
+                >
+                <a href="get-involved.html#devotee" data-close
+                  >Join as Devotee</a
+                >
+                <a href="get-involved.html#partner" data-close>Partner</a>
+                <a href="get-involved.html#career" data-close>Career</a>
+              </div>
+            </li>
+            <li>
+              <a href="awards-and-certificates.html" class="nav-a" data-close
+                >Awards and Certificates</a
+              >
+            </li>
+            <li><a href="events.html" class="nav-a" data-close>Events</a></li>
+            <li>
+              <a href="#resources" class="nav-a">Resources</a>
+              <div class="mobile-dropdown-menu">
+                <a href="#gallery" data-close>Gallery</a>
+                <a href="stories.html" data-close>Stories</a>
+                <a href="#donors" data-close>Donors Speak</a>
+              </div>
+            </li>
+            <li style="margin-top: 20px">
+              <a href="donate.html" class="btn btn-donate ripple" data-close
+                >Donate Now</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════
+       1  HERO — CINEMATIC FULLSCREEN
+  ═══════════════════════════════════════ -->
+    <section class="hero" id="hero" aria-label="Hero — Act for Change">
+      <!-- Fullscreen background slideshow -->
+      <div class="hero-slides" id="heroSlides" aria-hidden="true">
+        <div
+          class="hero-slide hs-active"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1576381394626-53b3d2d48145?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBvb3IlMjBjaGlsZHJlbnxlbnwwfHwwfHx8MA%3D%3D&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://media.istockphoto.com/id/496276728/photo/group-of-happy-gypsy-indian-children-desert-village-india.jpg&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://media.istockphoto.com/id/1307038878/photo/hands-of-poor-asking-for-help-africa.jpg?s=612x612&w=0&k=20&c=VZveM8wE31zwVsCcmRpiv33VN2Y4b0UFzG7EqTbFB_I=&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1764738130385-182c58353131?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;);
+          "
+        ></div>
+        <div
+          class="hero-slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1547496614-54ff387d650a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE2fHxwb29yJTIwY2hpbGR8ZW58MHx8MHx8fDA%3D&quot;);
+          "
+        ></div>
+      </div>
+
+      <!-- Cinematic layered overlays -->
+      <div class="hero-ov hov-dark" aria-hidden="true"></div>
+      <div class="hero-ov hov-warm" aria-hidden="true"></div>
+      <div class="hero-ov hov-vignette" aria-hidden="true"></div>
+
+      <!-- Floating ambient orbs -->
+      <div class="hero-orbs" aria-hidden="true">
+        <div class="horb horb-1"></div>
+        <div class="horb horb-2"></div>
+        <div class="horb horb-3"></div>
+      </div>
+
+      <!-- Mouse-follow glow -->
+      <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
+
+      <!-- ── EDITORIAL LAYOUT ── -->
+      <div class="hero-layout">
+        <!-- Left: Emotional copy -->
+        <div class="hero-left">
+          <div class="hero-badge reveal" style="--d: 0.15s">
+            <span class="hbadge-live"></span>
+            <span>Transforming Communities Since 2013</span>
+          </div>
+
+          <h1 class="hero-h1">
+            <span class="h1-word reveal" style="--d: 0.3s">Every</span>
+            <span class="h1-word reveal" style="--d: 0.42s">Action</span>
+            <em class="h1-em reveal" style="--d: 0.56s">Changes a Life.</em>
+          </h1>
+
+          <p class="hero-mission reveal" style="--d: 0.7s">
+            A Kolkata-born movement bridging compassion and sustainable change —
+            building schools, healing families, and lifting communities one life
+            at a time.
+          </p>
+
+          <div class="hero-ctas reveal" style="--d: 0.84s">
+            <a href="get-involved.html" class="btn-hprimary magnetic ripple">
+              Join Our Mission <span class="btn-arrow-icon">→</span>
+            </a>
+            <a href="#about" class="btn-hglass magnetic"> Our Story </a>
+          </div>
+
+          <!-- Impact strip -->
+          <div class="hero-stats reveal" style="--d: 0.98s">
+            <div class="hstat">
+              <strong>200K+</strong><span>Lives Changed</span>
+            </div>
+            <div class="hstat-sep"></div>
+            <div class="hstat">
+              <strong>50K+</strong><span>Children Educated</span>
+            </div>
+            <div class="hstat-sep"></div>
+            <div class="hstat">
+              <strong>30+</strong><span>Communities</span>
+            </div>
+            <div class="hstat-sep"></div>
+            <div class="hstat">
+              <strong>10+</strong><span>Years Active</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Floating story cards -->
+        <div class="hero-right" aria-hidden="true">
+          <div class="hstory-stack">
+            <div class="hstory-card float-anim" style="--fd: 0s">
+              <img
+                src="https://media.istockphoto.com/id/496276728/photo/group-of-happy-gypsy-indian-children-desert-village-india.jpg"
+                alt=""
+              />
+              <div class="hstory-info">
+                <p>"Hope Begins With Togetherness"</p>
+              </div>
+            </div>
+
+            <div
+              class="hstory-card hstory-offset float-anim"
+              style="--fd: 0.55s"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9vciUyMGNoaWxkcmVufGVufDB8fDB8fHww"
+                alt=""
+              />
+              <div class="hstory-info">
+                <p>“From Struggle to Strength.”</p>
+              </div>
+            </div>
+          </div>
+          <!-- Fixed unclosed div wrapper for hstory-stack -->
+
+          <!-- Logo ring badge -->
+          <div class="hero-logo-ring float-anim" style="--fd: 1.4s">
+            <div class="hlr-ring hlr-ring-1"></div>
+            <div class="hlr-ring hlr-ring-2"></div>
+            <img src="logo.png" alt="Act for Change" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide progress dots -->
+      <div class="hero-dots" id="heroDots" aria-hidden="true">
+        <button class="hdot active" data-idx="0"><span></span></button>
+        <button class="hdot" data-idx="1"><span></span></button>
+        <button class="hdot" data-idx="2"><span></span></button>
+        <button class="hdot" data-idx="3"><span></span></button>
+        <button class="hdot" data-idx="4"><span></span></button>
+      </div>
+
+      <!-- Organic wave -->
+      <div class="hero-wave" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 90"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,45 C360,90 1080,0 1440,45 L1440,90 L0,90 Z"
+            fill="#FAF6F0"
+          />
+        </svg>
+      </div>
+    </section>
+    <!-- ═══════════════════════════════════════
+       2. ABOUT NGO SPLIT SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section sec-about" id="about">
+      <div class="container container-about">
+        <div class="about-left reveal">
+          <h2 class="about-title">
+            Act For Change — A Trusted NGO in Kolkata Creating Real Change in
+            India
+          </h2>
+          <p class="about-desc">
+            We are dedicated to building a brighter future. Through sustainable
+            initiatives and community-driven action, Act For Change focuses on
+            empowering individuals across West Bengal and India to overcome
+            poverty, find educational opportunities, and rebuild their lives
+            with dignity.
+          </p>
+          <a href="#volunteer" class="btn btn-donate magnetic ripple mt-4"
+            >Learn More</a
+          >
+        </div>
+        <div class="about-right reveal" style="--d: 0.2s">
+          <div class="about-card">
+            <img
+              src="https://nabatarafoundation.org/causePics/4345574.webp"
+              alt="Volunteer helping"
+              class="about-card-img"
+            />
+            <div class="about-card-overlay">
+              <h3 class="about-card-title">Join the Movement</h3>
+              <p class="about-card-text">
+                Every action counts. Together we can shape a compassionate
+                society.
+              </p>
+              <a
+                href="#volunteer"
+                class="btn btn-hprimary magnetic ripple about-card-btn"
+                >Become a Volunteer</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       3. NGO SERVICES / MISSIONS
+    ═══════════════════════════════════════ -->
+    <section class="section sec-missions" id="missions">
+      <div class="container">
+        <div class="section-hdr text-center" style="text-align: center">
+          <h2 class="section-h2 reveal">Our Missions</h2>
+        </div>
+        <div class="missions-grid">
+          <div class="mission-card glass reveal" style="--d: 0.1s">
+            <div class="mission-icon">
+              <!-- Lucide 'users' -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <h3>Society</h3>
+            <p>
+              Uplifting communities through education, healthcare, and resource
+              access.
+            </p>
+          </div>
+          <div class="mission-card glass reveal" style="--d: 0.2s">
+            <div class="mission-icon">
+              <!-- Lucide 'leaf' -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"
+                />
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+              </svg>
+            </div>
+            <h3>Environment</h3>
+            <p>
+              Driving sustainable practices, tree planting, and climate
+              awareness programs.
+            </p>
+          </div>
+          <div class="mission-card glass reveal" style="--d: 0.3s">
+            <div class="mission-icon">
+              <!-- Lucide 'refresh-cw' / change -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                <path d="M3 3v5h5" />
+              </svg>
+            </div>
+            <h3>Change</h3>
+            <p>
+              Empowering individuals to break the cycle of poverty and lead
+              independent lives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       4. NGO QUOTE + IMAGE SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section sec-quote">
+      <div
+        class="quote-bg"
+        style="
+          background-image: url(&quot;https://nabatarafoundation.org/causePics/4345574.webp&quot;);
+        "
+      >
+        <div class="quote-overlay"></div>
+        <div class="container quote-container">
+          <div class="quote-content reveal">
+            <h2 class="quote-text">
+              “Together, small acts create lasting change.”
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       5. MISSION ACTIVITIES SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section sec-activities" id="activities">
+      <div class="container">
+        <div class="section-hdr text-center" style="text-align: center">
+          <h2 class="section-h2 reveal">Our Key Activities</h2>
+        </div>
+        <div class="activities-grid">
+          <div class="activity-card reveal" style="--d: 0.1s">
+            <img
+              src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=500&auto=format&fit=crop&q=60"
+              alt="Environment"
+              class="act-img"
+            />
+            <div class="act-content">
+              <h4>Environmental Programs</h4>
+              <p>
+                Promoting sustainability, afforestation, and clean water drives.
+              </p>
+            </div>
+          </div>
+          <div class="activity-card reveal" style="--d: 0.2s">
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&auto=format&fit=crop&q=60"
+              alt="Education"
+              class="act-img"
+            />
+            <div class="act-content">
+              <h4>Education Camps</h4>
+              <p>
+                Providing foundational learning and school support for
+                underprivileged kids.
+              </p>
+            </div>
+          </div>
+          <div class="activity-card reveal" style="--d: 0.3s">
+            <img
+              src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=500&auto=format&fit=crop&q=60"
+              alt="Books"
+              class="act-img"
+            />
+            <div class="act-content">
+              <h4>Books & Learning Drives</h4>
+              <p>Bridging the knowledge gap through community libraries.</p>
+            </div>
+          </div>
+          <div class="activity-card reveal" style="--d: 0.4s">
+            <img
+              src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=500&auto=format&fit=crop&q=60"
+              alt="Women"
+              class="act-img"
+            />
+            <div class="act-content">
+              <h4>Women Awareness</h4>
+              <p>
+                Focused programs empowering women through skills and health
+                awareness.
+              </p>
+            </div>
+          </div>
+          <div class="activity-card reveal" style="--d: 0.1s">
+            <img
+              src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=500&auto=format&fit=crop&q=60"
+              alt="Child"
+              class="act-img"
+            />
+            <div class="act-content">
+              <h4>Child Welfare</h4>
+              <p>
+                Ensuring every child is safe, nourished, and free from labor.
+              </p>
+            </div>
+          </div>
+          <div class="activity-card reveal" style="--d: 0.2s">
+            <img
+              src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=500&auto=format&fit=crop&q=60"
+              alt="Community"
+              class="act-img"
+            />
+            <div class="act-content">
+              <h4>Community Development</h4>
+              <p>
+                Building local infrastructure and strengthening rural economies.
+              </p>
+            </div>
+          </div>
+          <div class="activity-card reveal" style="--d: 0.3s">
+            <img
+              src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=500&auto=format&fit=crop&q=60"
+              alt="Relief"
+              class="act-img"
+            />
+            <div class="act-content">
+              <h4>Disaster Relief</h4>
+              <p>
+                Emergency response, food distribution, and rebuilding efforts.
+              </p>
+            </div>
+          </div>
+          <div class="activity-card reveal" style="--d: 0.4s">
+            <img
+              src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=500&auto=format&fit=crop&q=60"
+              alt="Health"
+              class="act-img"
+            />
+            <div class="act-content">
+              <h4>Healthcare Support</h4>
+              <p>
+                Medical camps, hygiene campaigns, and essential health supplies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       6. REAL CHANGE / IMPACT SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section sec-impact" id="impact">
+      <div class="container">
+        <div class="section-hdr text-center" style="text-align: center">
+          <h2 class="section-h2 reveal">Real Change Starts Here</h2>
+        </div>
+        <div class="impact-stats-grid">
+          <div class="impact-stat-item reveal" style="--d: 0.1s">
+            <div class="impact-counter" data-target="50000">50K+</div>
+            <div class="impact-label">Children Educated</div>
+          </div>
+          <div class="impact-stat-item reveal" style="--d: 0.2s">
+            <div class="impact-counter" data-target="15000">15K+</div>
+            <div class="impact-label">Families Supported</div>
+          </div>
+          <div class="impact-stat-item reveal" style="--d: 0.3s">
+            <div class="impact-counter" data-target="10000">10K+</div>
+            <div class="impact-label">Women Empowered</div>
+          </div>
+          <div class="impact-stat-item reveal" style="--d: 0.4s">
+            <div class="impact-counter" data-target="200">200+</div>
+            <div class="impact-label">Villages Impacted</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       7. FAQ SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section sec-faq" id="faq">
+      <div class="container container-faq">
+        <div class="section-hdr text-center" style="text-align: center">
+          <h2 class="section-h2 reveal">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-accordion reveal" style="--d: 0.2s" id="faqAccordion">
+          <!-- populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       8. LATEST PHOTOS GALLERY
+    ═══════════════════════════════════════ -->
+    <section class="section sec-gallery" id="gallery">
+      <div class="container">
+        <div class="section-hdr text-center" style="text-align: center">
+          <h2 class="section-h2 reveal">Latest Photos</h2>
+        </div>
+        <div class="gallery-grid">
+          <!-- Item 1 -->
+          <div
+            class="gallery-img-wrap revealig"
+            style="--d: 0.1s"
+            data-ig-url="https://www.instagram.com/actforchange.trust/"
+            data-caption="Together we rebuild communities. Another successful outreach program in the heart of the city. 💛✨ #socialimpact #community #actforchange"
+            data-date="OCT 15, 2025"
+            data-likes="1,245"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1593113580326-884ab527b12d?w=600&auto=format&fit=crop&q=60"
+              alt="Gallery photo 1"
+            />
+            <div class="ig-hover-overlay">
+              <div class="ig-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <p class="ig-hover-text">Double Click To View On Instagram</p>
+              <div class="ig-hover-meta">
+                <span>❤️ 1,245</span>
+                <span>💬 89</span>
+              </div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div
+            class="gallery-img-wrap revealig"
+            style="--d: 0.2s"
+            data-ig-url="https://www.instagram.com/actforchange.trust/"
+            data-caption="Education is the most powerful weapon which you can use to change the world. 📚🌍 #education #empowerment"
+            data-date="OCT 10, 2025"
+            data-likes="892"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?w=600&auto=format&fit=crop&q=60"
+              alt="Gallery photo 2"
+            />
+            <div class="ig-hover-overlay">
+              <div class="ig-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <p class="ig-hover-text">Double Click To View On Instagram</p>
+              <div class="ig-hover-meta">
+                <span>❤️ 892</span>
+                <span>💬 45</span>
+              </div>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div
+            class="gallery-img-wrap revealig"
+            style="--d: 0.3s"
+            data-ig-url="https://www.instagram.com/actforchange.trust/"
+            data-caption="Every small step counts towards a sustainable future. 🌿 #environment #gogreen"
+            data-date="OCT 05, 2025"
+            data-likes="2,104"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=600&auto=format&fit=crop&q=60"
+              alt="Gallery photo 3"
+            />
+            <div class="ig-hover-overlay">
+              <div class="ig-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <p class="ig-hover-text">Double Click To View On Instagram</p>
+              <div class="ig-hover-meta">
+                <span>❤️ 2,104</span>
+                <span>💬 120</span>
+              </div>
+            </div>
+          </div>
+          <!-- Item 4 -->
+          <div
+            class="gallery-img-wrap revealig"
+            style="--d: 0.4s"
+            data-ig-url="https://www.instagram.com/actforchange.trust/"
+            data-caption="Bringing smiles to faces. Thank you to all our amazing volunteers. 🙌 #volunteers #ngo"
+            data-date="SEP 28, 2025"
+            data-likes="645"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1576381394626-53b3d2d48145?w=600&auto=format&fit=crop&q=60"
+              alt="Gallery photo 4"
+            />
+            <div class="ig-hover-overlay">
+              <div class="ig-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <p class="ig-hover-text">Double Click To View On Instagram</p>
+              <div class="ig-hover-meta">
+                <span>❤️ 645</span>
+                <span>💬 22</span>
+              </div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div
+            class="gallery-img-wrap revealig"
+            style="--d: 0.5s"
+            data-ig-url="https://www.instagram.com/actforchange.trust/"
+            data-caption="Medical camp for the underprivileged. Health is a fundamental right. 🩺 #health #medicalcamp"
+            data-date="SEP 15, 2025"
+            data-likes="3,412"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=600&auto=format&fit=crop&q=60"
+              alt="Gallery photo 5"
+            />
+            <div class="ig-hover-overlay">
+              <div class="ig-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <p class="ig-hover-text">Double Click To View On Instagram</p>
+              <div class="ig-hover-meta">
+                <span>❤️ 3,412</span>
+                <span>💬 310</span>
+              </div>
+            </div>
+          </div>
+          <!-- Item 6 -->
+          <div
+            class="gallery-img-wrap revealig"
+            style="--d: 0.6s"
+            data-ig-url="https://www.instagram.com/actforchange.trust/"
+            data-caption="Supporting local artisans and promoting ethical trades. 🎨 #ethicaltrade #artisans"
+            data-date="SEP 02, 2025"
+            data-likes="1,156"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&auto=format&fit=crop&q=60"
+              alt="Gallery photo 6"
+            />
+            <div class="ig-hover-overlay">
+              <div class="ig-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <p class="ig-hover-text">Double Click To View On Instagram</p>
+              <div class="ig-hover-meta">
+                <span>❤️ 1,156</span>
+                <span>💬 76</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       9. EMAIL SUBSCRIPTION SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section sec-newsletter" id="newsletter">
+      <div class="container">
+        <div class="newsletter-card glass reveal">
+          <div class="nl-content">
+            <h2>Join Our Cause</h2>
+            <p>
+              Subscribe to get monthly updates, volunteer opportunities, and
+              inspiring stories directly in your inbox.
+            </p>
+            <form class="nl-form" onsubmit="event.preventDefault()">
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+              />
+              <button type="submit" class="btn btn-donate ripple">
+                Subscribe Now
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       10. FOOTER / CONTACT SECTION
+    ═══════════════════════════════════════ -->
+    <footer class="footer-new" id="contact">
+      <div class="container">
+        <div class="footer-grid-new">
+          <div class="footer-brand-new">
+            <a href="home.html" class="footer-logo-link">
+              <img
+                src="logo.png"
+                alt="Act for Change"
+                class="footer-logo-img"
+              />
+              <span class="footer-logo-text">Act For Change</span>
+            </a>
+            <p class="footer-desc">
+              Empowering communities and rebuilding lives in Kolkata and across
+              India. Be a part of the change.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Facebook">Fb</a>
+              <a href="#" aria-label="Twitter">Tw</a>
+              <a href="#" aria-label="Instagram">Ig</a>
+              <a href="#" aria-label="LinkedIn">In</a>
+            </div>
+          </div>
+          <div class="footer-col-new">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="who-we-are.html">Who We Are</a></li>
+              <li><a href="#activities">Our Programmes</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="get-involved.html">Get Involved</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-new">
+            <h4>Our Missions</h4>
+            <ul>
+              <li><a href="#activities">Environmental Programs</a></li>
+              <li><a href="#activities">Child Welfare</a></li>
+              <li><a href="#activities">Women Awareness</a></li>
+              <li><a href="#activities">Healthcare Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-new">
+            <h4>Contact Info</h4>
+            <ul class="contact-list-new">
+              <li>📍 12, Park Street, Kolkata — 700016</li>
+              <li>📞 +91 33 1234 5678</li>
+              <li>✉️ hello@actforchange.in</li>
+            </ul>
+            <a
+              href="donate.html"
+              class="btn btn-hprimary ripple mt-3"
+              style="display: inline-block; margin-top: 24px"
+              >Donate Now</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom-new">
+          <p>© 2026 Act For Change. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- IG Lightbox -->
+    <div class="ig-lightbox" id="igLightbox">
+      <div class="ig-lightbox-backdrop" id="igLightboxBackdrop"></div>
+      <div class="ig-lightbox-content">
+        <button class="ig-lightbox-close" id="igLightboxClose">
+          <svg
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <button class="ig-lightbox-nav prev" id="igLightboxPrev">
+          <svg
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="ig-lightbox-nav next" id="igLightboxNext">
+          <svg
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+        <div class="ig-lightbox-body">
+          <div class="ig-lightbox-media" id="igLightboxMediaWrap">
+            <img src="" alt="IG Media" id="igLightboxImg" />
+          </div>
+          <div class="ig-lightbox-info">
+            <div class="ig-lightbox-header">
+              <div class="ig-profile-placeholder">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="ig-profile-name">
+                <strong>actforchange.trust</strong>
+                <span id="igLightboxDateText"></span>
+              </div>
+            </div>
+            <div class="ig-lightbox-caption" id="igLightboxCaption"></div>
+            <div class="ig-lightbox-stats" id="igLightboxStats"></div>
+            <div class="ig-lightbox-footer">
+              <a
+                href="#"
+                class="btn btn-primary-gradient ig-view-btn ripple"
+                id="igLightboxViewBtn"
+                target="_blank"
+              >
+                <svg
+                  class="ig-btn-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  width="18"
+                  height="18"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path
+                    d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                  ></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                View on Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="home.js"></script>
+  </body>
+</html>

@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who We Are | Act for Change</title>
+    <meta
+      name="description"
+      content="Learn about Act For Change's history, board of directors, team, and our vision and mission."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <nav class="nav" id="nav" role="navigation" aria-label="Main">
+      <div class="nav-inner">
+        <a href="home.html" class="nav-brand" aria-label="Act for Change home">
+          <img src="logo.png" alt="Act for Change" class="nav-logo" />
+          <span class="nav-brand-text">Act For Change</span>
+        </a>
+
+        <ul class="nav-list" id="navList" role="list">
+          <li><a href="home.html" class="nav-a">Home</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="who-we-are.html" class="nav-a active">Who We Are</a>
+            <div class="nav-dropdown">
+              <a href="#about" class="dropdown-link">About Us</a>
+              <a href="#board" class="dropdown-link">Board of Directors</a>
+              <a href="#team" class="dropdown-link">Our Team</a>
+              <a href="#vision" class="dropdown-link">Vision and Mission</a>
+            </div>
+          </li>
+
+          <li><a href="home.html#programs" class="nav-a">Our Programmes</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="get-involved.html" class="nav-a">Get Involved</a>
+            <div class="nav-dropdown">
+              <a href="get-involved.html#volunteer" class="dropdown-link"
+                >Be a Volunteer</a
+              >
+              <a href="get-involved.html#devotee" class="dropdown-link"
+                >Join as Devotee</a
+              >
+              <a href="get-involved.html#partner" class="dropdown-link"
+                >Partner</a
+              >
+              <a href="get-involved.html#career" class="dropdown-link"
+                >Career</a
+              >
+            </div>
+          </li>
+
+          <li>
+            <a href="awards-and-certificates.html" class="nav-a"
+              >Awards and Certificates</a
+            >
+          </li>
+          <li><a href="events.html" class="nav-a">Events</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="home.html#resources" class="nav-a">Resources</a>
+            <div class="nav-dropdown">
+              <a href="home.html#gallery" class="dropdown-link">Gallery</a>
+              <a href="stories.html" class="dropdown-link">Stories</a>
+              <a href="home.html#donors" class="dropdown-link">Donors Speak</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="nav-end">
+          <a href="donate.html" class="btn btn-donate magnetic ripple"
+            >Donate</a
+          >
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <div class="mobile-nav-scroll">
+          <ul role="list">
+            <li><a href="home.html" class="nav-a" data-close>Home</a></li>
+            <li>
+              <a href="who-we-are.html" class="nav-a">Who We Are</a>
+              <div class="mobile-dropdown-menu">
+                <a href="#about" data-close>About Us</a>
+                <a href="#board" data-close>Board of Directors</a>
+                <a href="#team" data-close>Our Team</a>
+                <a href="#vision" data-close>Vision and Mission</a>
+              </div>
+            </li>
+            <li>
+              <a href="home.html#programs" class="nav-a" data-close
+                >Our Programmes</a
+              >
+            </li>
+            <li>
+              <a href="get-involved.html" class="nav-a">Get Involved</a>
+              <div class="mobile-dropdown-menu">
+                <a href="get-involved.html#volunteer" data-close
+                  >Be a Volunteer</a
+                >
+                <a href="get-involved.html#devotee" data-close
+                  >Join as Devotee</a
+                >
+                <a href="get-involved.html#partner" data-close>Partner</a>
+                <a href="get-involved.html#career" data-close>Career</a>
+              </div>
+            </li>
+            <li>
+              <a href="awards-and-certificates.html" class="nav-a" data-close
+                >Awards and Certificates</a
+              >
+            </li>
+            <li>
+              <a href="events.html" class="nav-a" data-close>Events</a>
+            </li>
+            <li>
+              <a href="home.html#resources" class="nav-a">Resources</a>
+              <div class="mobile-dropdown-menu">
+                <a href="home.html#gallery" data-close>Gallery</a>
+                <a href="stories.html" data-close>Stories</a>
+                <a href="home.html#donors" data-close>Donors Speak</a>
+              </div>
+            </li>
+            <li style="margin-top: 20px">
+              <a href="donate.html" class="btn btn-donate ripple" data-close
+                >Donate Now</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- ═══════════════════════════════════════
+       1. HERO HEADING SECTION
+    ═══════════════════════════════════════ -->
+    <section class="wwa-hero">
+      <div class="wwa-slider" id="wwaSlider">
+        <div
+          class="wwa-slide active"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1518640467707-6811f4a6ab73&quot;);
+          "
+        ></div>
+        <div
+          class="wwa-slide"
+          style="
+            background-image: url(&quot;https://media.istockphoto.com/id/496276728/photo/group-of-happy-gypsy-indian-children-desert-village-india.jpg&quot;);
+          "
+        ></div>
+        <div
+          class="wwa-slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1518717758536-85ae29035b6d&quot;);
+          "
+        ></div>
+        <div
+          class="wwa-slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1511988617509-a57c8a288659&quot;);
+          "
+        ></div>
+        <div
+          class="wwa-slide"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1500530855697-b586d89ba3ee&quot;);
+          "
+        ></div>
+      </div>
+      <div class="wwa-hero-overlay"></div>
+      <div class="container wwa-hero-content">
+        <div class="wwa-eyebrow reveal">WHO WE ARE</div>
+        <h1 class="wwa-h1 reveal" style="--d: 0.1s">
+          Act For Change Foundation
+        </h1>
+        <div class="wwa-tagline reveal" style="--d: 0.2s">
+          COMPASSION • EDUCATION • EMPOWERMENT • SUSTAINABLE IMPACT
+        </div>
+        <p class="wwa-hero-desc reveal" style="--d: 0.3s">
+          Act For Change Foundation is dedicated to creating lasting social
+          impact through education, community development, environmental
+          initiatives, and humanitarian action. Together, we empower
+          individuals, strengthen communities, and build a more compassionate
+          future.
+        </p>
+        <div class="wwa-hero-btns reveal" style="--d: 0.4s">
+          <a href="#about" class="btn btn-primary-gradient ripple magnetic"
+            >Learn Our Story</a
+          >
+          <a href="#programs" class="btn btn-outline-white ripple magnetic"
+            >Explore Programs</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       2. ABOUT US SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section wwa-about" id="about">
+      <div class="container wwa-about-grid">
+        <div class="wwa-about-left reveal">
+          <img
+            src="https://media.istockphoto.com/id/496276728/photo/group-of-happy-gypsy-indian-children-desert-village-india.jpg?s=1024x1024&w=is&k=20&c=xO0C1j5Tf9p_A24j1wQoD9j57Yh4C2-F0Iu64y2yVwM="
+            alt="Community impact"
+            class="wwa-about-img"
+          />
+        </div>
+        <div class="wwa-about-right reveal" style="--d: 0.2s">
+          <div class="eyebrow">Compassion, Education, and Empowerment</div>
+          <h2 class="wwa-about-h2">
+            A Story That Begins With Compassion and Grows Into Impact
+          </h2>
+          <p class="wwa-about-p">
+            Since our inception, Act For Change has stood as a beacon of hope
+            for marginalised communities. We believe that real change starts at
+            the grassroots level — where compassion meets action.
+          </p>
+          <p class="wwa-about-p">
+            Operating out of Kolkata, our dedicated team of volunteers and
+            professionals work tirelessly to bridge the gap between privilege
+            and poverty. We don't just provide aid; we build sustainable
+            pathways out of poverty through education, healthcare, and
+            livelihood support.
+          </p>
+          <p class="wwa-about-p">
+            Every child in school, every woman running a business, and every
+            village with clean water represents our ongoing commitment to
+            humanity. We are not just an NGO; we are a movement for a brighter,
+            more equitable India.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       3. NGO VISION VIDEO SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section wwa-video" id="vision-video">
+      <div class="container">
+        <div class="section-hdr text-center" style="text-align: center">
+          <div class="eyebrow reveal">Our True North</div>
+          <h2 class="section-h2 reveal" style="--d: 0.1s">
+            Our Vision for Change
+          </h2>
+          <p class="wwa-video-text reveal" style="--d: 0.2s">
+            Our vision extends beyond temporary relief. We envision an India
+            where education, empowerment, and environmental sustainability
+            intersect to transform entire communities for generations to come.
+          </p>
+        </div>
+        <div class="video-wrapper reveal" style="--d: 0.3s">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/9X37c84iZ2c"
+            title="NGO Vision"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       4. VOLUNTEER / DONATE CTA BANNER SECTION
+    ═══════════════════════════════════════ -->
+    <section class="wwa-cta">
+      <div
+        class="wwa-cta-bg"
+        style="
+          background-image: url(&quot;https://nabatarafoundation.org/causePics/4345574.webp&quot;);
+        "
+      ></div>
+      <div class="wwa-cta-overlay"></div>
+      <div class="container wwa-cta-content">
+        <h2 class="wwa-cta-h2 reveal">
+          Donate to India’s Leading NGO<br />Transform Lives Through Action
+        </h2>
+        <p class="wwa-cta-p reveal" style="--d: 0.1s">
+          Your support is the catalyst for real change. Whether you choose to
+          give your time as a volunteer or provide financial support, every
+          contribution directly impacts a family in need. Join us in our mission
+          today.
+        </p>
+        <div class="wwa-cta-btns reveal" style="--d: 0.2s">
+          <a href="donate.html" class="btn btn-hprimary ripple magnetic"
+            >Donate Now</a
+          >
+          <a
+            href="get-involved.html#volunteer"
+            class="btn btn-hglass ripple magnetic"
+            >Become a Volunteer</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       5. BOARD OF DIRECTORS SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section wwa-board" id="board">
+      <div class="container">
+        <div class="section-hdr text-center" style="text-align: center">
+          <h2 class="section-h2 reveal">Leadership Driving Real Change</h2>
+          <p class="section-sub reveal" style="--d: 0.1s">
+            Guiding our humanitarian mission with dedication and vision.
+          </p>
+        </div>
+
+        <!-- ChromaGrid implementation for Board Members -->
+        <div
+          class="chromagrid-wrapper reveal"
+          style="--d: 0.2s"
+          id="chromaGrid"
+        >
+          <div class="cg-card">
+            <div class="cg-spotlight"></div>
+            <div class="cg-content">
+              <div class="cg-img">
+                <img
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
+                  alt="Samiran Paul"
+                />
+              </div>
+              <h4>Samiran Paul</h4>
+              <span>Director</span>
+            </div>
+          </div>
+
+          <div class="cg-card">
+            <div class="cg-spotlight"></div>
+            <div class="cg-content">
+              <div class="cg-img">
+                <img
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80"
+                  alt="Gaurav Saha"
+                />
+              </div>
+              <h4>Gaurav Saha</h4>
+              <span>Chief Director</span>
+            </div>
+          </div>
+
+          <div class="cg-card">
+            <div class="cg-spotlight"></div>
+            <div class="cg-content">
+              <div class="cg-img">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80"
+                  alt="Rohan Das"
+                />
+              </div>
+              <h4>Rohan Das</h4>
+              <span>Human Resource Coordinator</span>
+            </div>
+          </div>
+
+          <div class="cg-card">
+            <div class="cg-spotlight"></div>
+            <div class="cg-content">
+              <div class="cg-img">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80"
+                  alt="Ritesh Dey"
+                />
+              </div>
+              <h4>Ritesh Dey</h4>
+              <span>Social Media Manager</span>
+            </div>
+          </div>
+
+          <div class="cg-card">
+            <div class="cg-spotlight"></div>
+            <div class="cg-content">
+              <div class="cg-img">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80"
+                  alt="Atreyee Ghosal"
+                />
+              </div>
+              <h4>Atreyee Ghosal</h4>
+              <span>Coordinator</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       6. TEAM DESCRIPTION SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section wwa-team" id="team">
+      <div class="container">
+        <div class="section-hdr text-center" style="text-align: center">
+          <h2 class="section-h2 reveal">Meet Our Team</h2>
+          <p class="section-sub reveal" style="--d: 0.1s">
+            The compassionate hearts working tirelessly on the ground.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card reveal" style="--d: 0.1s">
+            <img
+              src="https://images.unsplash.com/photo-1506869640319-91c5e22247fb?w=400&q=80"
+              alt="Volunteer Managers"
+            />
+            <div class="tc-info">
+              <h4>Volunteer Managers</h4>
+              <p>“Coordinating our strength, one volunteer at a time.”</p>
+            </div>
+          </div>
+          <div class="team-card reveal" style="--d: 0.2s">
+            <img
+              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&q=80"
+              alt="Field Coordinators"
+            />
+            <div class="tc-info">
+              <h4>Field Coordinators</h4>
+              <p>“Always on the ground, delivering hope where it’s needed.”</p>
+            </div>
+          </div>
+          <div class="team-card reveal" style="--d: 0.3s">
+            <img
+              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80"
+              alt="Education Leaders"
+            />
+            <div class="tc-info">
+              <h4>Education Leaders</h4>
+              <p>“Illuminating minds and securing brighter futures.”</p>
+            </div>
+          </div>
+          <div class="team-card reveal" style="--d: 0.4s">
+            <img
+              src="https://images.unsplash.com/photo-1544717305-2782549b5136?w=400&q=80"
+              alt="Social Workers"
+            />
+            <div class="tc-info">
+              <h4>Social Workers</h4>
+              <p>“The bridge between struggle and sustainable empowerment.”</p>
+            </div>
+          </div>
+          <div class="team-card reveal" style="--d: 0.5s">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80"
+              alt="Campaign Managers"
+            />
+            <div class="tc-info">
+              <h4>Campaign Managers</h4>
+              <p>“Amplifying our voice to reach those who want to help.”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       7. VISION & MISSION SECTION
+    ═══════════════════════════════════════ -->
+    <section class="section wwa-vision" id="vision">
+      <div class="container">
+        <div class="section-hdr text-center" style="text-align: center">
+          <h2 class="section-h2 reveal">Vision &amp; Mission</h2>
+          <p class="section-sub reveal" style="--d: 0.1s">
+            Our blueprint for a resilient, self-sustaining society.
+          </p>
+        </div>
+
+        <div class="vm-cards-wrap">
+          <div class="vm-main-card glass reveal" style="--d: 0.1s">
+            <h3>Our Vision</h3>
+            <p>
+              To create an equitable, thriving society where every individual
+              has access to the education, opportunities, and healthcare
+              necessary to live a life of dignity and purpose.
+            </p>
+          </div>
+          <div class="vm-main-card glass reveal" style="--d: 0.2s">
+            <h3>Our Mission</h3>
+            <p>
+              To implement grassroots programs that tackle poverty, illiteracy,
+              and inequality head-on. We empower communities to become
+              architects of their own progress.
+            </p>
+          </div>
+        </div>
+
+        <h3
+          class="vm-focus-title reveal"
+          style="
+            --d: 0.3s;
+            text-align: center;
+            margin: 60px 0 30px;
+            font-family: var(--font-head);
+          "
+        >
+          Our Focus Areas
+        </h3>
+        <div class="vm-focus-grid">
+          <div class="vm-focus-card reveal" style="--d: 0.1s">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+            <h4>Education</h4>
+          </div>
+          <div class="vm-focus-card reveal" style="--d: 0.2s">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"
+              />
+              <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+            </svg>
+            <h4>Environment</h4>
+          </div>
+          <div class="vm-focus-card reveal" style="--d: 0.3s">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <h4>Society</h4>
+          </div>
+          <div class="vm-focus-card reveal" style="--d: 0.4s">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 14v8" />
+              <path d="M9 19h6" />
+              <circle cx="12" cy="8" r="5" />
+            </svg>
+            <h4>Women Empowerment</h4>
+          </div>
+          <div class="vm-focus-card reveal" style="--d: 0.5s">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+            <h4>Community Welfare</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer-new" id="contact">
+      <div class="container">
+        <div class="footer-grid-new">
+          <div class="footer-brand-new">
+            <a href="home.html" class="footer-logo-link">
+              <img
+                src="logo.png"
+                alt="Act for Change"
+                class="footer-logo-img"
+              />
+              <span class="footer-logo-text">Act For Change</span>
+            </a>
+            <p class="footer-desc">
+              Empowering communities and rebuilding lives in Kolkata and across
+              India. Be a part of the change.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Facebook">Fb</a>
+              <a href="#" aria-label="Twitter">Tw</a>
+              <a href="#" aria-label="Instagram">Ig</a>
+              <a href="#" aria-label="LinkedIn">In</a>
+            </div>
+          </div>
+          <div class="footer-col-new">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="who-we-are.html">Who We Are</a></li>
+              <li><a href="home.html#activities">Our Programmes</a></li>
+              <li><a href="home.html#gallery">Gallery</a></li>
+              <li><a href="get-involved.html">Get Involved</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-new">
+            <h4>Our Missions</h4>
+            <ul>
+              <li><a href="home.html#activities">Environmental Programs</a></li>
+              <li><a href="home.html#activities">Child Welfare</a></li>
+              <li><a href="home.html#activities">Women Awareness</a></li>
+              <li><a href="home.html#activities">Healthcare Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-new">
+            <h4>Contact Info</h4>
+            <ul class="contact-list-new">
+              <li>📍 12, Park Street, Kolkata — 700016</li>
+              <li>📞 +91 33 1234 5678</li>
+              <li>✉️ hello@actforchange.in</li>
+            </ul>
+            <a
+              href="donate.html"
+              class="btn btn-hprimary ripple mt-3"
+              style="display: inline-block; margin-top: 24px"
+              >Donate Now</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom-new">
+          <p>© 2026 Act For Change. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="home.js"></script>
+    <script type="module" src="who-we-are.js"></script>
+  </body>
+</html>

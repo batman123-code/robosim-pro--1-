@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login | Act for Change</title>
+    <meta name="description" content="Log in to your Act For Change account to donate and track your contributions." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="donate.css" />
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body>
+    <nav class="nav" id="nav" role="navigation" aria-label="Main">
+      <div class="nav-inner">
+        <a href="home.html" class="nav-brand" aria-label="Act for Change home">
+          <img src="logo.png" alt="Act for Change" class="nav-logo" />
+          <span class="nav-brand-text">Act For Change</span>
+        </a>
+        <ul class="nav-list" id="navList" role="list">
+          <li><a href="home.html" class="nav-a">Home</a></li>
+          <li><a href="who-we-are.html" class="nav-a">Who We Are</a></li>
+          <li><a href="home.html#programs" class="nav-a">Our Programmes</a></li>
+          <li><a href="get-involved.html" class="nav-a">Get Involved</a></li>
+          <li><a href="events.html" class="nav-a">Events</a></li>
+        </ul>
+        <div class="nav-end">
+          <a href="donate.html" class="btn btn-donate magnetic ripple">Donate</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <div class="mobile-nav-scroll">
+          <ul role="list">
+            <li><a href="home.html" class="nav-a" data-close>Home</a></li>
+            <li><a href="who-we-are.html" class="nav-a" data-close>Who We Are</a></li>
+            <li><a href="get-involved.html" class="nav-a" data-close>Get Involved</a></li>
+            <li><a href="events.html" class="nav-a" data-close>Events</a></li>
+            <li style="margin-top: 20px">
+              <a href="donate.html" class="btn btn-donate ripple" data-close>Donate Now</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="auth-section">
+      <div class="auth-card reveal">
+        <h1>Welcome Back</h1>
+        <p class="auth-sub">Log in to donate and track your contributions.</p>
+
+        <div class="auth-error" id="authError"></div>
+        <div class="auth-success" id="authSuccess"></div>
+
+        <!-- Login method toggle -->
+        <div class="auth-toggle">
+          <button type="button" id="tabPassword" class="active">Login with Password</button>
+          <button type="button" id="tabOtp">Login with OTP</button>
+        </div>
+
+        <!-- Password login -->
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="identifier">Email or Phone</label>
+            <input type="text" id="identifier" class="form-control" required autocomplete="username"
+              placeholder="you@example.com or 10-digit phone" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="password" class="form-control" required autocomplete="current-password"
+                placeholder="Your password" />
+              <button type="button" class="pw-toggle" data-target="password">Show</button>
+            </div>
+          </div>
+          <button type="submit" class="auth-btn" id="loginBtn">Log In</button>
+          <div class="auth-guest" style="margin-top: 14px">
+            <a href="forgot-password.html">Forgot password?</a>
+          </div>
+        </form>
+
+        <!-- OTP login -->
+        <form id="otpForm" style="display: none" novalidate>
+          <div class="form-group">
+            <label for="otpIdentifier">Email or Phone</label>
+            <input type="text" id="otpIdentifier" class="form-control" autocomplete="username"
+              placeholder="you@example.com or 10-digit phone" />
+          </div>
+          <div class="form-group" id="otpCodeGroup" style="display: none">
+            <label for="otpCode">Enter 6-digit OTP</label>
+            <input type="text" id="otpCode" class="form-control" inputmode="numeric"
+              maxlength="6" pattern="[0-9]{6}" placeholder="••••••" autocomplete="one-time-code" />
+          </div>
+          <button type="submit" class="auth-btn" id="otpBtn">Send OTP</button>
+          <div class="auth-guest" id="otpResendWrap" style="margin-top: 14px; display: none">
+            <a href="#" id="otpResend">Resend OTP</a>
+          </div>
+        </form>
+
+        <div class="auth-alt">
+          New here? <a href="register.html">Create an account</a>
+        </div>
+
+        <div class="auth-divider">or</div>
+        <div class="auth-guest">
+          <a href="#" id="guestLink">Continue as guest →</a>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="home.js"></script>
+    <script type="module" src="login.js"></script>
+  </body>
+</html>

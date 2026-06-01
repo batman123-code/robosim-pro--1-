@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account | Act for Change</title>
+    <meta name="description" content="Create your Act For Change account to donate and track your contributions." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="donate.css" />
+    <link rel="stylesheet" href="auth.css" />
+  </head>
+  <body>
+    <nav class="nav" id="nav" role="navigation" aria-label="Main">
+      <div class="nav-inner">
+        <a href="home.html" class="nav-brand" aria-label="Act for Change home">
+          <img src="logo.png" alt="Act for Change" class="nav-logo" />
+          <span class="nav-brand-text">Act For Change</span>
+        </a>
+        <ul class="nav-list" id="navList" role="list">
+          <li><a href="home.html" class="nav-a">Home</a></li>
+          <li><a href="who-we-are.html" class="nav-a">Who We Are</a></li>
+          <li><a href="home.html#programs" class="nav-a">Our Programmes</a></li>
+          <li><a href="get-involved.html" class="nav-a">Get Involved</a></li>
+          <li><a href="events.html" class="nav-a">Events</a></li>
+        </ul>
+        <div class="nav-end">
+          <a href="donate.html" class="btn btn-donate magnetic ripple">Donate</a>
+          <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <div class="mobile-nav-scroll">
+          <ul role="list">
+            <li><a href="home.html" class="nav-a" data-close>Home</a></li>
+            <li><a href="who-we-are.html" class="nav-a" data-close>Who We Are</a></li>
+            <li><a href="get-involved.html" class="nav-a" data-close>Get Involved</a></li>
+            <li><a href="events.html" class="nav-a" data-close>Events</a></li>
+            <li style="margin-top: 20px">
+              <a href="donate.html" class="btn btn-donate ripple" data-close>Donate Now</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="auth-section">
+      <div class="auth-card reveal">
+        <h1>Create Your Account</h1>
+        <p class="auth-sub">Join us and keep a record of the change you make.</p>
+
+        <div class="auth-error" id="authError"></div>
+        <div class="auth-success" id="authSuccess"></div>
+
+        <form id="registerForm" novalidate>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" required autocomplete="name" placeholder="Your full name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" required autocomplete="email" placeholder="you@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" class="form-control" required autocomplete="tel" placeholder="10-digit mobile number" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="password" class="form-control" required autocomplete="new-password"
+                placeholder="Min 8 chars, A-z, 0-9, symbol" />
+              <button type="button" class="pw-toggle" data-target="password">Show</button>
+            </div>
+            <div class="pw-strength"><span id="pwBar"></span></div>
+            <div class="pw-hint" id="pwHint">Use 8+ characters with upper, lower, number &amp; symbol.</div>
+          </div>
+          <div class="form-group">
+            <label for="confirm">Confirm Password</label>
+            <div class="pw-wrap">
+              <input type="password" id="confirm" class="form-control" required autocomplete="new-password" placeholder="Re-enter password" />
+              <button type="button" class="pw-toggle" data-target="confirm">Show</button>
+            </div>
+          </div>
+          <button type="submit" class="auth-btn" id="registerBtn">Create Account</button>
+        </form>
+
+        <!-- OTP verification step (shown after registration) -->
+        <form id="verifyForm" style="display: none" novalidate>
+          <p class="auth-sub" id="verifySub">
+            Enter the 6-digit code we sent to verify your account.
+          </p>
+          <div class="form-group">
+            <label for="otpCode">Verification OTP</label>
+            <input type="text" id="otpCode" class="form-control" inputmode="numeric"
+              maxlength="6" pattern="[0-9]{6}" placeholder="••••••" autocomplete="one-time-code" />
+          </div>
+          <button type="submit" class="auth-btn" id="verifyBtn">Verify &amp; Activate</button>
+          <div class="auth-guest" style="margin-top: 14px">
+            <a href="#" id="resendLink">Resend OTP</a>
+          </div>
+        </form>
+
+        <div class="auth-alt">
+          Already have an account? <a href="login.html">Log in</a>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="home.js"></script>
+    <script type="module" src="register.js"></script>
+  </body>
+</html>

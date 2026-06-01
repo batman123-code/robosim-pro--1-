@@ -1,0 +1,228 @@
+/* Auth pages (login / register) — uses the existing design tokens from
+   home.css / donate.css (orange/white/dark, Inter + Playfair). */
+
+.auth-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 20px 80px;
+  background: var(--bg, #faf7f2);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  background: #fff;
+  border: 1px solid var(--glass-bdr, rgba(0, 0, 0, 0.08));
+  border-radius: 20px;
+  padding: 40px 36px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.auth-card h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.9rem;
+  margin: 0 0 6px;
+  color: var(--txt, #1a1a1a);
+}
+
+.auth-card .auth-sub {
+  color: var(--muted, #6b6b6b);
+  margin: 0 0 26px;
+  font-size: 0.95rem;
+}
+
+.auth-card .form-group {
+  margin-bottom: 16px;
+}
+
+.auth-card label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--txt, #1a1a1a);
+}
+
+.auth-card .form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--glass-bdr, rgba(0, 0, 0, 0.12));
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fff;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.auth-card .form-control:focus {
+  outline: none;
+  border-color: var(--orange, #e86b2c);
+}
+
+.pw-wrap {
+  position: relative;
+}
+.pw-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--orange, #e86b2c);
+  font-weight: 600;
+}
+
+.pw-strength {
+  height: 6px;
+  border-radius: 4px;
+  background: #eee;
+  margin-top: 8px;
+  overflow: hidden;
+}
+.pw-strength span {
+  display: block;
+  height: 100%;
+  width: 0;
+  transition:
+    width 0.25s,
+    background 0.25s;
+}
+.pw-hint {
+  font-size: 0.78rem;
+  color: var(--muted, #6b6b6b);
+  margin-top: 6px;
+}
+
+.auth-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f0883e, #e86b2c);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    opacity 0.2s;
+}
+.auth-btn:hover {
+  transform: translateY(-1px);
+}
+.auth-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-error {
+  background: #fdecec;
+  color: #c0392b;
+  border: 1px solid #f5c6c6;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+  display: none;
+}
+
+.auth-success {
+  background: #e9f9ef;
+  color: #1e7e44;
+  border: 1px solid #b6e6c8;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+  display: none;
+}
+
+/* Login method toggle (Password / OTP) */
+.auth-toggle {
+  display: flex;
+  gap: 6px;
+  background: #f1ece5;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 22px;
+}
+.auth-toggle button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 9px;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--muted, #6b5d52);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.auth-toggle button.active {
+  background: #fff;
+  color: var(--orange, #e86b2c);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.auth-alt {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--muted, #6b6b6b);
+}
+.auth-alt a {
+  color: var(--orange, #e86b2c);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-guest {
+  text-align: center;
+  margin-top: 14px;
+}
+.auth-guest a {
+  color: var(--muted, #6b6b6b);
+  font-size: 0.88rem;
+  text-decoration: underline;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0 6px;
+  color: var(--muted, #999);
+  font-size: 0.8rem;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--glass-bdr, rgba(0, 0, 0, 0.1));
+}
+
+.btn-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btnspin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+@keyframes btnspin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Could Not Be Completed | Act for Change</title>
+    <meta
+      name="description"
+      content="Your donation payment could not be completed. You can retry your contribution to Act For Change Foundation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="donate.css" />
+  </head>
+  <body>
+    <nav class="nav" id="nav" role="navigation" aria-label="Main">
+      <div class="nav-inner">
+        <a href="home.html" class="nav-brand" aria-label="Act for Change home">
+          <img src="logo.png" alt="Act for Change" class="nav-logo" />
+          <span class="nav-brand-text">Act For Change</span>
+        </a>
+
+        <ul class="nav-list" id="navList" role="list">
+          <li><a href="home.html" class="nav-a">Home</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="who-we-are.html" class="nav-a">Who We Are</a>
+            <div class="nav-dropdown">
+              <a href="#about" class="dropdown-link">About Us</a>
+              <a href="#board" class="dropdown-link">Board of Directors</a>
+              <a href="#team" class="dropdown-link">Our Team</a>
+              <a href="#vision" class="dropdown-link">Vision and Mission</a>
+            </div>
+          </li>
+
+          <li><a href="home.html#programs" class="nav-a">Our Programmes</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="get-involved.html" class="nav-a">Get Involved</a>
+            <div class="nav-dropdown">
+              <a href="get-involved.html#volunteer" class="dropdown-link"
+                >Be a Volunteer</a
+              >
+              <a href="get-involved.html#devotee" class="dropdown-link"
+                >Join as Devotee</a
+              >
+              <a href="get-involved.html#partner" class="dropdown-link"
+                >Partner</a
+              >
+              <a href="get-involved.html#career" class="dropdown-link"
+                >Career</a
+              >
+            </div>
+          </li>
+
+          <li>
+            <a href="awards-and-certificates.html" class="nav-a"
+              >Awards and Certificates</a
+            >
+          </li>
+          <li><a href="events.html" class="nav-a">Events</a></li>
+
+          <li class="nav-item-dropdown">
+            <a href="home.html#resources" class="nav-a">Resources</a>
+            <div class="nav-dropdown">
+              <a href="home.html#gallery" class="dropdown-link">Gallery</a>
+              <a href="stories.html" class="dropdown-link">Stories</a>
+              <a href="home.html#donors" class="dropdown-link">Donors Speak</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="nav-end">
+          <a href="donate.html" class="btn btn-donate magnetic ripple"
+            >Donate</a
+          >
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+        <div class="mobile-nav-scroll">
+          <ul role="list">
+            <li><a href="home.html" class="nav-a" data-close>Home</a></li>
+            <li>
+              <a href="who-we-are.html" class="nav-a">Who We Are</a>
+              <div class="mobile-dropdown-menu">
+                <a href="#about" data-close>About Us</a>
+                <a href="#board" data-close>Board of Directors</a>
+                <a href="#team" data-close>Our Team</a>
+                <a href="#vision" data-close>Vision and Mission</a>
+              </div>
+            </li>
+            <li>
+              <a href="home.html#programs" class="nav-a" data-close
+                >Our Programmes</a
+              >
+            </li>
+            <li>
+              <a href="get-involved.html" class="nav-a">Get Involved</a>
+              <div class="mobile-dropdown-menu">
+                <a href="get-involved.html#volunteer" data-close
+                  >Be a Volunteer</a
+                >
+                <a href="get-involved.html#devotee" data-close
+                  >Join as Devotee</a
+                >
+                <a href="get-involved.html#partner" data-close>Partner</a>
+                <a href="get-involved.html#career" data-close>Career</a>
+              </div>
+            </li>
+            <li>
+              <a href="awards-and-certificates.html" class="nav-a" data-close
+                >Awards and Certificates</a
+              >
+            </li>
+            <li>
+              <a href="events.html" class="nav-a" data-close>Events</a>
+            </li>
+            <li>
+              <a href="home.html#resources" class="nav-a">Resources</a>
+              <div class="mobile-dropdown-menu">
+                <a href="home.html#gallery" data-close>Gallery</a>
+                <a href="stories.html" data-close>Stories</a>
+                <a href="home.html#donors" data-close>Donors Speak</a>
+              </div>
+            </li>
+            <li style="margin-top: 20px">
+              <a href="donate.html" class="btn btn-donate ripple" data-close
+                >Donate Now</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="don-success-sec">
+      <div class="container text-center reveal">
+        <div class="success-icon-wrap" style="color: #d64545">
+          <svg
+            class="success-icon"
+            width="64"
+            height="64"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="15" y1="9" x2="9" y2="15"></line>
+            <line x1="9" y1="9" x2="15" y2="15"></line>
+          </svg>
+        </div>
+
+        <h1>Payment Could Not Be Completed</h1>
+        <p class="success-sub" id="failReason">
+          Your transaction did not go through. No amount has been charged. You
+          can safely try again.
+        </p>
+
+        <div class="success-actions">
+          <a href="donate.html" class="btn btn-primary-gradient ripple"
+            >Retry Payment</a
+          >
+          <a
+            href="mailto:support@actforchange.org"
+            class="btn btn-outline ripple"
+            style="border-color: var(--txt); color: var(--txt)"
+            >Contact Support</a
+          >
+          <a href="home.html" class="btn btn-outline ripple">Return Home</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-new" id="contact">
+      <div class="container">
+        <div class="footer-grid-new">
+          <div class="footer-brand-new">
+            <a href="home.html" class="footer-logo-link">
+              <img
+                src="logo.png"
+                alt="Act for Change"
+                class="footer-logo-img"
+              />
+              <span class="footer-logo-text">Act For Change</span>
+            </a>
+            <p class="footer-desc">
+              Empowering communities and rebuilding lives in Kolkata and across
+              India. Be a part of the change.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Facebook">Fb</a>
+              <a href="#" aria-label="Twitter">Tw</a>
+              <a href="#" aria-label="Instagram">Ig</a>
+              <a href="#" aria-label="LinkedIn">In</a>
+            </div>
+          </div>
+          <div class="footer-col-new">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="who-we-are.html">Who We Are</a></li>
+              <li><a href="home.html#activities">Our Programmes</a></li>
+              <li><a href="home.html#gallery">Gallery</a></li>
+              <li><a href="get-involved.html">Get Involved</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-new">
+            <h4>Our Missions</h4>
+            <ul>
+              <li><a href="home.html#activities">Environmental Programs</a></li>
+              <li><a href="home.html#activities">Child Welfare</a></li>
+              <li><a href="home.html#activities">Women Awareness</a></li>
+              <li><a href="home.html#activities">Healthcare Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-col-new">
+            <h4>Contact Info</h4>
+            <ul class="contact-list-new">
+              <li>📍 12, Park Street, Kolkata — 700016</li>
+              <li>📞 +91 33 1234 5678</li>
+              <li>✉️ hello@actforchange.in</li>
+            </ul>
+            <a
+              href="donate.html"
+              class="btn btn-hprimary ripple mt-3"
+              style="display: inline-block; margin-top: 24px"
+              >Donate Now</a
+            >
+          </div>
+        </div>
+        <div class="footer-bottom-new">
+          <p>© 2026 Act For Change. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="home.js"></script>
+    <script type="module" src="donation-failure.js"></script>
+  </body>
+</html>
