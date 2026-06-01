@@ -1,17 +1,23 @@
-import { setSession, isAuthenticated, apiUrl } from "./auth.js";
+import { auth, isAuthenticated, apiUrl } from "./auth.js";
+import {
+  signInWithEmailAndPassword,
+  sendEmailVerification,
+  onAuthStateChanged,
+} from "firebase/auth";
 
 const params = new URLSearchParams(window.location.search);
 const redirectTo = params.get("redirect") || "home.html";
 
-if (isAuthenticated()) window.location.href = redirectTo;
+// Redirect if already signed in.
+const _a = auth();
+if (_a) onAuthStateChanged(_a, (user) => {
+  if (user && user.emailVerified) window.location.href = redirectTo;
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const errorBox = document.getElementById("authError");
   const successBox = document.getElementById("authSuccess");
   const loginForm = document.getElementById("loginForm");
-  const otpForm = document.getElementById("otpForm");
-  const tabPassword = document.getElementById("tabPassword");
-  const tabOtp = document.getElementById("tabOtp");
 
   const showError = (m) => {
     errorBox.textContent = m;
@@ -28,48 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
     successBox.style.display = "none";
   };
 
-  async function postJSON(path, body) {
-    const res = await fetch(apiUrl(path), {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    let data;
-    try {
-      data = await res.json();
-    } catch (_) {
-      throw new Error("Unable to reach the server. Please try again later.");
-    }
-    return { res, data };
-  }
-
   const withLoading = async (btn, text, fn) => {
-    const original = btn.innerHTML;
+    const orig = btn.innerHTML;
     btn.disabled = true;
-    btn.innerHTML = '<span class="btn-spinner"></span>' + text;
-    try {
-      await fn();
-    } finally {
-      btn.disabled = false;
-      btn.innerHTML = original;
-    }
+    btn.innerHTML = `<span class="btn-spinner"></span>${text}`;
+    try { await fn(); } finally { btn.disabled = false; btn.innerHTML = orig; }
   };
-
-  // ── Method toggle ────────────────────────────────────────────────
-  tabPassword.addEventListener("click", () => {
-    tabPassword.classList.add("active");
-    tabOtp.classList.remove("active");
-    loginForm.style.display = "block";
-    otpForm.style.display = "none";
-    clearMsgs();
-  });
-  tabOtp.addEventListener("click", () => {
-    tabOtp.classList.add("active");
-    tabPassword.classList.remove("active");
-    otpForm.style.display = "block";
-    loginForm.style.display = "none";
-    clearMsgs();
-  });
 
   // Show/hide password
   document.querySelectorAll(".pw-toggle").forEach((t) => {
@@ -82,114 +52,51 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Continue as guest
-  document.getElementById("guestLink").addEventListener("click", (e) => {
+  document.getElementById("guestLink")?.addEventListener("click", (e) => {
     e.preventDefault();
-    window.location.href =
-      redirectTo === "home.html" ? "donate.html" : redirectTo;
+    window.location.href = redirectTo === "home.html" ? "donate.html" : redirectTo;
   });
 
-  // ── Password login ───────────────────────────────────────────────
-  loginForm.addEventListener("submit", async (e) => {
+  // ── Password sign-in via Firebase ────────────────────────────────
+  loginForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
     clearMsgs();
-    const identifier = document.getElementById("identifier").value.trim();
+    const email = document.getElementById("identifier").value.trim();
     const password = document.getElementById("password").value;
-    if (!identifier || !password)
-      return showError("Please enter your email/phone and password.");
+    if (!email || !password) return showError("Please enter your email and password.");
 
     await withLoading(document.getElementById("loginBtn"), "Logging in...", async () => {
       try {
-        const { res, data } = await postJSON("/api/auth/login", {
-          identifier,
-          password,
-        });
-        if (res.status === 403 && data.requiresVerification) {
-          // Account not verified — kick off verification.
-          await postJSON("/api/auth/resend-otp", {
-            identifier: data.identifier || identifier,
-            purpose: "registration",
-          });
+        const cred = await signInWithEmailAndPassword(auth(), email, password);
+
+        // Block unverified accounts and re-send the verification email.
+        if (!cred.user.emailVerified) {
+          await sendEmailVerification(cred.user);
           showSuccess(
-            "Your account isn't verified. We've sent an OTP — check the registration page.",
-          );
-          setTimeout(
-            () =>
-              (window.location.href =
-                "register.html?verify=" +
-                encodeURIComponent(data.identifier || identifier)),
-            1500,
+            "Please verify your email before signing in. " +
+            "We've sent a new verification link — check your inbox."
           );
           return;
         }
-        if (!res.ok || !data.success)
-          throw new Error(data.message || "Login failed.");
-        setSession(data.token, data.user);
+
         window.location.href = redirectTo;
       } catch (err) {
-        showError(err.message);
+        showError(friendlyFirebaseError(err.code));
       }
     });
-  });
-
-  // ── OTP login ────────────────────────────────────────────────────
-  let otpSent = false;
-  const otpBtn = document.getElementById("otpBtn");
-  const otpCodeGroup = document.getElementById("otpCodeGroup");
-  const otpResendWrap = document.getElementById("otpResendWrap");
-
-  async function sendLoginOtp(identifier) {
-    await postJSON("/api/auth/send-login-otp", { identifier });
-    otpSent = true;
-    otpCodeGroup.style.display = "block";
-    otpResendWrap.style.display = "block";
-    otpBtn.textContent = "Verify & Login";
-    showSuccess("If an account exists, an OTP has been sent.");
-  }
-
-  otpForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    clearMsgs();
-    const identifier = document.getElementById("otpIdentifier").value.trim();
-    if (!identifier) return showError("Please enter your email or phone.");
-
-    if (!otpSent) {
-      await withLoading(otpBtn, "Sending OTP...", async () => {
-        try {
-          await sendLoginOtp(identifier);
-        } catch (err) {
-          showError(err.message);
-        }
-      });
-      return;
-    }
-
-    const otp = document.getElementById("otpCode").value.trim();
-    if (!/^[0-9]{6}$/.test(otp)) return showError("Enter the 6-digit OTP.");
-    await withLoading(otpBtn, "Verifying OTP...", async () => {
-      try {
-        const { res, data } = await postJSON("/api/auth/verify-login-otp", {
-          identifier,
-          otp,
-        });
-        if (!res.ok || !data.success)
-          throw new Error(data.message || "Invalid OTP.");
-        setSession(data.token, data.user);
-        window.location.href = redirectTo;
-      } catch (err) {
-        showError(err.message);
-      }
-    });
-  });
-
-  document.getElementById("otpResend").addEventListener("click", async (e) => {
-    e.preventDefault();
-    clearMsgs();
-    const identifier = document.getElementById("otpIdentifier").value.trim();
-    try {
-      await postJSON("/api/auth/resend-otp", { identifier, purpose: "login" });
-      showSuccess("A new OTP has been sent.");
-    } catch (err) {
-      showError(err.message);
-    }
   });
 });
+
+// Map Firebase error codes to user-friendly messages.
+function friendlyFirebaseError(code) {
+  const map = {
+    "auth/invalid-email": "Please enter a valid email address.",
+    "auth/user-not-found": "No account found with this email.",
+    "auth/wrong-password": "Incorrect password.",
+    "auth/invalid-credential": "Incorrect email or password.",
+    "auth/user-disabled": "This account has been disabled.",
+    "auth/too-many-requests": "Too many attempts. Please try again later.",
+    "auth/network-request-failed": "Network error. Please check your connection.",
+  };
+  return map[code] || "Login failed. Please try again.";
+}

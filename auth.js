@@ -1,23 +1,19 @@
 // ---------------------------------------------------------------------------
-// Client-side auth manager (the vanilla equivalent of an AuthContext).
-// - Stores the JWT + user in localStorage so login persists across refreshes.
-// - Verifies the token against /api/auth/me on startup.
-// - Renders a Login / user chip into the navbar on every page.
-// - Gates Donate links: logged-out users go to login.html?redirect=donate.html
-//   (login page offers a "Continue as guest" escape — guest fallback).
+// Client-side auth manager — Firebase Auth edition.
+// Firebase is initialised lazily (not at module scope) so a Firebase error
+// never crashes the page. All other modules can still import from this file.
 // ---------------------------------------------------------------------------
 
-const TOKEN_KEY = "afc_token";
-const USER_KEY = "afc_user";
+import { initializeApp, getApps } from "firebase/app";
+import {
+  getAuth,
+  onAuthStateChanged,
+  signOut,
+  getIdToken,
+} from "firebase/auth";
 
 // ---------------------------------------------------------------------------
-// Resolve the API base URL.
-// - Served by Vite (:3000) or in production → same origin ("") and /api is
-//   proxied/handled there.
-// - Served by a static-only dev server that returns 405 for POST (e.g. VS Code
-//   Live Server :5500) or from a file:// path → talk to the Express backend
-//   directly on :3001 (CORS is enabled server-side).
-// This is what prevents the "405 Method Not Allowed" on POST /api/* calls.
+// API base URL — handles Live Server / file:// quirk (prevents 405 errors).
 // ---------------------------------------------------------------------------
 export function apiBase() {
   if (typeof window === "undefined") return "";
@@ -27,143 +23,160 @@ export function apiBase() {
   if (staticDevPorts.includes(port)) return "http://localhost:3001";
   return ""; // same-origin (Vite dev proxy or production)
 }
-
 export function apiUrl(path) {
   return apiBase() + path;
 }
 
-export function getToken() {
-  return localStorage.getItem(TOKEN_KEY);
+// ---------------------------------------------------------------------------
+// Lazy Firebase init — called the first time auth is needed, not at import.
+// ---------------------------------------------------------------------------
+let _auth = null;
+
+function getFirebaseAuth() {
+  if (_auth) return _auth;
+  try {
+    const firebaseConfig = {
+      apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+      authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+      projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+      storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+      messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+      appId: import.meta.env.VITE_FIREBASE_APP_ID,
+      measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
+    };
+    // Avoid "duplicate app" error if module is hot-reloaded in Vite dev.
+    const app = getApps().length
+      ? getApps()[0]
+      : initializeApp(firebaseConfig);
+    _auth = getAuth(app);
+  } catch (e) {
+    console.error("[auth] Firebase init failed:", e.message);
+    _auth = null;
+  }
+  return _auth;
 }
 
+// Export the auth instance for pages that need it (login.js, register.js…).
+export { getAuth as getFirebaseAuth };
+export function auth() {
+  return getFirebaseAuth();
+}
+
+// ---------------------------------------------------------------------------
+// Auth state (updated by onAuthStateChanged).
+// ---------------------------------------------------------------------------
+let _currentUser = null;
+
 export function getUser() {
-  try {
-    return JSON.parse(localStorage.getItem(USER_KEY) || "null");
-  } catch (e) {
-    return null;
-  }
+  if (!_currentUser) return null;
+  return {
+    uid: _currentUser.uid,
+    id: _currentUser.uid,
+    name:
+      _currentUser.displayName ||
+      _currentUser.email?.split("@")[0] ||
+      "Donor",
+    email: _currentUser.email,
+    emailVerified: _currentUser.emailVerified,
+    picture: _currentUser.photoURL,
+  };
 }
 
 export function isAuthenticated() {
-  return !!getToken();
+  return !!_currentUser;
 }
 
-export function setSession(token, user) {
-  localStorage.setItem(TOKEN_KEY, token);
-  localStorage.setItem(USER_KEY, JSON.stringify(user));
-}
-
-export function clearSession() {
-  localStorage.removeItem(TOKEN_KEY);
-  localStorage.removeItem(USER_KEY);
-}
-
-// Authorization header helper for authenticated fetch calls.
-export function authHeader() {
-  const t = getToken();
-  return t ? { Authorization: "Bearer " + t } : {};
-}
-
-// Confirm the stored token is still valid; refresh the cached user.
-// Clears the session if the token is missing/expired/invalid.
-export async function verifySession() {
-  const token = getToken();
-  if (!token) return null;
+// ---------------------------------------------------------------------------
+// authHeader — returns Authorization: Bearer <id-token> for API calls.
+// Async because getIdToken() is a network call (auto-refresh).
+// ---------------------------------------------------------------------------
+export async function authHeader() {
+  const firebaseAuth = getFirebaseAuth();
+  if (!firebaseAuth || !_currentUser) return {};
   try {
-    const res = await fetch(apiUrl("/api/auth/me"), { headers: authHeader() });
-    if (!res.ok) {
-      clearSession();
-      return null;
-    }
-    const data = await res.json();
-    if (data && data.success && data.user) {
-      localStorage.setItem(USER_KEY, JSON.stringify(data.user));
-      return data.user;
-    }
-    clearSession();
-    return null;
+    const token = await getIdToken(_currentUser, false);
+    return { Authorization: "Bearer " + token };
   } catch (e) {
-    // Network/backend down — keep the cached session, don't force logout.
-    return getUser();
+    return {};
   }
 }
 
+// ---------------------------------------------------------------------------
+// Logout.
+// ---------------------------------------------------------------------------
 export async function logout() {
-  try {
-    await fetch(apiUrl("/api/auth/logout"), {
-      method: "POST",
-      headers: authHeader(),
-    });
-  } catch (e) {
-    /* ignore */
+  const firebaseAuth = getFirebaseAuth();
+  if (firebaseAuth) {
+    try { await signOut(firebaseAuth); } catch (e) { /* ignore */ }
   }
-  clearSession();
   window.location.href = "home.html";
 }
 
-// Inject a Login link or a user chip (with logout) into the navbar.
+// ---------------------------------------------------------------------------
+// Navbar rendering.
+// ---------------------------------------------------------------------------
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]),
+  );
+}
+
 function renderNavAuth() {
   const navEnd = document.querySelector(".nav-end");
-  if (!navEnd || document.getElementById("authNavSlot")) return;
+  if (!navEnd) return;
 
-  const slot = document.createElement("div");
-  slot.id = "authNavSlot";
-  slot.style.display = "flex";
-  slot.style.alignItems = "center";
-  slot.style.gap = "10px";
+  let slot = document.getElementById("authNavSlot");
+  if (!slot) {
+    slot = document.createElement("div");
+    slot.id = "authNavSlot";
+    slot.style.cssText = "display:flex;align-items:center;gap:10px";
+    const donateBtn = navEnd.querySelector(".btn-donate");
+    navEnd.insertBefore(slot, donateBtn || navEnd.firstChild);
+  }
 
   const user = getUser();
-  if (isAuthenticated() && user) {
+  if (user) {
     slot.innerHTML =
       '<span class="nav-a" style="cursor:default;font-weight:600">Hi, ' +
       escapeHtml((user.name || "Donor").split(" ")[0]) +
       '</span><a href="#" class="nav-a" id="logoutLink">Logout</a>';
+    document
+      .getElementById("logoutLink")
+      ?.addEventListener("click", (e) => { e.preventDefault(); logout(); });
   } else {
     slot.innerHTML = '<a href="login.html" class="nav-a" id="loginLink">Login</a>';
   }
-
-  // Place the auth slot just before the Donate button.
-  const donateBtn = navEnd.querySelector(".btn-donate");
-  navEnd.insertBefore(slot, donateBtn || navEnd.firstChild);
-
-  const logoutLink = document.getElementById("logoutLink");
-  if (logoutLink)
-    logoutLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      logout();
-    });
 }
 
-// Gate every Donate link when the user is logged out.
 function gateDonateLinks() {
-  if (isAuthenticated()) return; // logged in → links work as-is
   document.querySelectorAll('a[href="donate.html"]').forEach((a) => {
-    a.setAttribute("href", "login.html?redirect=donate.html");
+    a.setAttribute(
+      "href",
+      isAuthenticated() ? "donate.html" : "login.html?redirect=donate.html",
+    );
   });
 }
 
-function escapeHtml(s) {
-  return String(s).replace(
-    /[&<>"']/g,
-    (c) =>
-      ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;",
-      })[c],
-  );
-}
-
-// Run site-wide. Called from home.js (loaded on every page).
+// ---------------------------------------------------------------------------
+// initSiteAuth — called from home.js (runs on every page).
+// ---------------------------------------------------------------------------
 export function initSiteAuth() {
   const run = () => {
+    // Render the navbar with whatever state we have right now (fast).
     renderNavAuth();
     gateDonateLinks();
-    // Re-validate the token in the background (persistent login check).
-    verifySession();
+
+    // Then subscribe to Firebase auth state changes (async).
+    const firebaseAuth = getFirebaseAuth();
+    if (firebaseAuth) {
+      onAuthStateChanged(firebaseAuth, (firebaseUser) => {
+        _currentUser = firebaseUser;
+        renderNavAuth();
+        gateDonateLinks();
+      });
+    }
   };
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", run);
   } else {

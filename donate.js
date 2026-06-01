@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log("[donate] Creating Razorpay order for ₹" + selectedAmount);
           res = await fetch(apiUrl("/api/create-order"), {
             method: "POST",
-            headers: { "Content-Type": "application/json", ...authHeader() },
+            headers: { "Content-Type": "application/json", ...(await authHeader()) },
             body: JSON.stringify({
               amount: selectedAmount,
               name: donorName,
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
               console.log("[donate] Verifying payment:", response.razorpay_payment_id);
               const verifyRes = await fetch(apiUrl("/api/verify-payment"), {
                 method: "POST",
-                headers: { "Content-Type": "application/json", ...authHeader() },
+                headers: { "Content-Type": "application/json", ...(await authHeader()) },
                 body: JSON.stringify({
                   razorpay_payment_id: response.razorpay_payment_id,
                   razorpay_order_id: response.razorpay_order_id,

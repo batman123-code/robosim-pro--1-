@@ -92,21 +92,11 @@
           <button type="submit" class="auth-btn" id="registerBtn">Create Account</button>
         </form>
 
-        <!-- OTP verification step (shown after registration) -->
-        <form id="verifyForm" style="display: none" novalidate>
-          <p class="auth-sub" id="verifySub">
-            Enter the 6-digit code we sent to verify your account.
-          </p>
-          <div class="form-group">
-            <label for="otpCode">Verification OTP</label>
-            <input type="text" id="otpCode" class="form-control" inputmode="numeric"
-              maxlength="6" pattern="[0-9]{6}" placeholder="••••••" autocomplete="one-time-code" />
-          </div>
-          <button type="submit" class="auth-btn" id="verifyBtn">Verify &amp; Activate</button>
-          <div class="auth-guest" style="margin-top: 14px">
-            <a href="#" id="resendLink">Resend OTP</a>
-          </div>
-        </form>
+        <!-- Shown after registration — prompts user to verify email -->
+        <div id="verifySection" style="display:none; text-align:center; padding: 20px 0;">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="1.5" style="margin:0 auto 16px;display:block"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <p style="color:var(--txt-muted);line-height:1.6">Check your inbox and click the verification link, then <a href="login.html" style="color:var(--orange);font-weight:600">log in</a>.</p>
+        </div>
 
         <div class="auth-alt">
           Already have an account? <a href="login.html">Log in</a>

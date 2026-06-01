@@ -507,69 +507,176 @@ window.handleNewsletter = handleNewsletter;
    NEW SECTIONS JS
 ═══════════════════════════════════════ */
 
-// 1. FAQ Accordion Population
-const faqs = [
-  "Why is Act For Change recognized as the best NGO in Kolkata to volunteer with?",
-  "What makes Act For Change one of India's top NGOs for community impact?",
-  "How can I contribute to educational programs as a volunteer?",
-  "What disaster relief volunteer opportunities are available?",
-  "What kind of volunteer training and support does Act For Change provide?",
-  "Can international volunteers join Act For Change programs?",
-  "What safety measures protect volunteers?",
-  "What's the application process to volunteer?",
-  "Which is the best NGO in Kolkata for social welfare and community development?",
-  "Why is Act For Change considered one of the best NGOs in India?",
-  "How can I volunteer with an NGO in Kolkata like Act For Change?",
-  "What programs does Act For Change run to support communities?",
-  "Is Act For Change among the top NGOs in Kolkata?",
-  "How does Act For Change help underprivileged children in India?",
-  "What makes Act For Change a trusted NGO in Kolkata?",
-  "How does Act For Change support women's empowerment in India?",
-  "Can international donors support Act For Change?",
-  "How does Act For Change respond to disasters in West Bengal?",
-  "How can I donate to one of the best NGOs in Kolkata?",
-  "What impact has Act For Change created in West Bengal?",
-  "Why should people support NGOs like Act For Change?",
-];
+/* ── FAQ ScrollStack (React Bits → vanilla port) ─────────────────────────
+   Faithful port of the ScrollStack `updateCardTransforms` algorithm:
+   each card pins at `stackPosition` (offset by itemStackDistance·i) and
+   scales toward `targetScale = baseScale + i·itemScale` (clamped ≤ 1 so the
+   21 FAQ items don't grow). Driven by native window scroll + rAF — same
+   visual result as the Lenis version without hijacking the whole page.
+──────────────────────────────────────────────────────────────────────── */
+(function initFaqScrollStack() {
+  const faqs = [
+    {
+      q: "Why is Act For Change recognized as the best NGO in Kolkata to volunteer with?",
+      a: "Act For Change has earned its reputation through over a decade of transparent, community-driven impact. We work directly with grassroots communities, ensuring every volunteer's contribution creates measurable, lasting change across education, healthcare, and environmental programs.",
+    },
+    {
+      q: "How can I contribute to educational programs as a volunteer?",
+      a: "Volunteers can join our teaching programs, mentor students, help organize learning camps, or contribute skills in areas like digital literacy and vocational training. We match your expertise with communities that need it most across Kolkata and West Bengal.",
+    },
+    {
+      q: "What kind of volunteer training and support does Act For Change provide?",
+      a: "All volunteers receive structured onboarding, program-specific training, a dedicated coordinator, and ongoing support throughout their engagement. We ensure you have the tools, context, and community to make your volunteer experience meaningful and safe.",
+    },
+    {
+      q: "How can I donate to support Act For Change's mission?",
+      a: "You can donate securely through our website via UPI, credit/debit card, net banking, or Razorpay. Every contribution — large or small — goes directly toward our programs. We publish transparent impact reports so you always know exactly how your donation is used.",
+    },
+  ];
 
-const faqContainer = document.getElementById("faqAccordion");
-if (faqContainer) {
-  faqs.forEach((q, idx) => {
-    const item = document.createElement("div");
-    item.className = "faq-item";
+  // ScrollStack props — tuned for 4 cards: strong stacking, smooth motion
+  const PROPS = {
+    itemDistance: 120,       // scroll distance before next card activates
+    itemScale: 0.04,         // scale step per depth level
+    itemStackDistance: 28,   // vertical offset between stacked cards
+    stackPosition: "22%",    // where stacking begins
+    scaleEndPosition: "12%", // where scaling completes
+    baseScale: 0.88,         // scale of the deepest card
+    rotationAmount: 0,
+    blurAmount: 0,
+  };
 
-    // For demo purposes, we will add a generic answer
-    const ans =
-      "Act For Change is dedicated to creating sustainable, long-term impact through grassroots actions. We prioritize transparency, community empowerment, and equitable access to resources, working closely with volunteers and partners to transform lives.";
+  const inner = document.getElementById("faqStackInner");
+  if (!inner) return;
 
-    item.innerHTML =
-      '<button class="faq-btn" aria-expanded="false"><span>' +
-      q +
-      '</span><div class="faq-icon"></div></button><div class="faq-content"><p class="faq-text">' +
-      ans +
-      "</p></div>";
+  // Build cards (accordion content inside each stack card)
+  faqs.forEach((faq, idx) => {
+    const card = document.createElement("div");
+    card.className = "scroll-stack-card";
+    card.innerHTML =
+      `<button class="faq-q-btn" aria-expanded="false" id="faq-q-${idx}" aria-controls="faq-a-${idx}">` +
+      `<span class="faq-q">${faq.q}</span><span class="faq-toggle" aria-hidden="true"></span></button>` +
+      `<div class="faq-a-wrap" id="faq-a-${idx}" role="region" aria-labelledby="faq-q-${idx}">` +
+      `<p class="faq-a">${faq.a}</p></div>`;
 
-    item.querySelector(".faq-btn").addEventListener("click", () => {
-      const isActive = item.classList.contains("active");
-
-      // Close all other
-      faqContainer.querySelectorAll(".faq-item").forEach((el) => {
+    card.querySelector(".faq-q-btn").addEventListener("click", () => {
+      const isActive = card.classList.contains("active");
+      inner.querySelectorAll(".scroll-stack-card").forEach((el) => {
         el.classList.remove("active");
-        el.querySelector(".faq-btn").setAttribute("aria-expanded", "false");
-        el.querySelector(".faq-content").style.maxHeight = null;
+        el.querySelector(".faq-q-btn").setAttribute("aria-expanded", "false");
+        el.querySelector(".faq-a-wrap").style.maxHeight = null;
       });
-
       if (!isActive) {
-        item.classList.add("active");
-        item.querySelector(".faq-btn").setAttribute("aria-expanded", "true");
-        const content = item.querySelector(".faq-content");
-        content.style.maxHeight = content.scrollHeight + 40 + "px";
+        card.classList.add("active");
+        card.querySelector(".faq-q-btn").setAttribute("aria-expanded", "true");
+        const wrap = card.querySelector(".faq-a-wrap");
+        wrap.style.maxHeight = wrap.scrollHeight + "px";
       }
     });
 
-    faqContainer.appendChild(item);
+    inner.appendChild(card);
   });
-}
+
+  // Spacer so the last pin can release cleanly
+  const end = document.createElement("div");
+  end.className = "scroll-stack-end";
+  inner.appendChild(end);
+
+  const cards = Array.from(inner.querySelectorAll(".scroll-stack-card"));
+
+  cards.forEach((card, i) => {
+    if (i < cards.length - 1) card.style.marginBottom = PROPS.itemDistance + "px";
+    card.style.willChange = "transform, filter";
+    card.style.transformOrigin = "top center";
+    card.style.backfaceVisibility = "hidden";
+  });
+
+  const parsePct = (val, h) =>
+    typeof val === "string" && val.includes("%")
+      ? (parseFloat(val) / 100) * h
+      : parseFloat(val);
+
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  const prog = (t, a, b) => clamp((t - a) / (b - a), 0, 1);
+  const offsetTop = (el) => el.getBoundingClientRect().top + window.scrollY;
+
+  // Lerped (smoothed) values — each card has a current and target state
+  const current = cards.map(() => ({ ty: 0, s: 1 }));
+  const target  = cards.map(() => ({ ty: 0, s: 1 }));
+  const LERP = 0.1; // smoothing factor — lower = silkier
+
+  function computeTargets() {
+    const scrollTop = window.scrollY;
+    const vh = window.innerHeight;
+    const stackPx = parsePct(PROPS.stackPosition, vh);
+    const scaleEndPx = parsePct(PROPS.scaleEndPosition, vh);
+    const endTop = offsetTop(end);
+    const pinEnd = endTop - vh / 2;
+
+    cards.forEach((card, i) => {
+      const cardTop = offsetTop(card);
+      const triggerStart = cardTop - stackPx - PROPS.itemStackDistance * i;
+      const triggerEnd   = cardTop - scaleEndPx;
+      const pinStart     = triggerStart;
+
+      const scaleProg  = prog(scrollTop, triggerStart, triggerEnd);
+      const targetScale = PROPS.baseScale + i * PROPS.itemScale; // ≤ 1 for 4 cards
+      const s = 1 - scaleProg * (1 - targetScale);
+
+      let ty = 0;
+      if (scrollTop >= pinStart && scrollTop <= pinEnd) {
+        ty = scrollTop - cardTop + stackPx + PROPS.itemStackDistance * i;
+      } else if (scrollTop > pinEnd) {
+        ty = pinEnd - cardTop + stackPx + PROPS.itemStackDistance * i;
+      }
+
+      target[i].ty = ty;
+      target[i].s  = s;
+    });
+  }
+
+  let rafId = null;
+  function loop() {
+    computeTargets();
+
+    let dirty = false;
+    cards.forEach((card, i) => {
+      const c = current[i], t = target[i];
+      c.ty += (t.ty - c.ty) * LERP;
+      c.s  += (t.s  - c.s)  * LERP;
+
+      const tyR = Math.round(c.ty * 10) / 10;
+      const sR  = Math.round(c.s  * 1000) / 1000;
+
+      card.style.transform = `translate3d(0, ${tyR}px, 0) scale(${sR})`;
+      if (Math.abs(t.ty - c.ty) > 0.05 || Math.abs(t.s - c.s) > 0.0005) dirty = true;
+    });
+
+    // Keep looping while values are still converging (no idle rAF waste)
+    rafId = requestAnimationFrame(loop);
+    if (!dirty && !scrolling) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
+
+  let scrolling = false;
+  let scrollTimer;
+  window.addEventListener("scroll", () => {
+    scrolling = true;
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => { scrolling = false; }, 150);
+    if (!rafId) rafId = requestAnimationFrame(loop);
+  }, { passive: true });
+
+  window.addEventListener("resize", () => {
+    current.forEach((c) => { c.ty = 0; c.s = 1; });
+    if (!rafId) rafId = requestAnimationFrame(loop);
+  }, { passive: true });
+
+  // Initial run (starts the lerp loop)
+  rafId = requestAnimationFrame(loop);
+})();
 
 // 2. Animated Counters
 const counters = document.querySelectorAll(".impact-counter");

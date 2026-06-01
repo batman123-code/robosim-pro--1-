@@ -59,18 +59,12 @@
         <div class="auth-error" id="authError"></div>
         <div class="auth-success" id="authSuccess"></div>
 
-        <!-- Login method toggle -->
-        <div class="auth-toggle">
-          <button type="button" id="tabPassword" class="active">Login with Password</button>
-          <button type="button" id="tabOtp">Login with OTP</button>
-        </div>
-
-        <!-- Password login -->
+        <!-- Email + password login (Firebase Auth) -->
         <form id="loginForm" novalidate>
           <div class="form-group">
-            <label for="identifier">Email or Phone</label>
-            <input type="text" id="identifier" class="form-control" required autocomplete="username"
-              placeholder="you@example.com or 10-digit phone" />
+            <label for="identifier">Email Address</label>
+            <input type="email" id="identifier" class="form-control" required autocomplete="email"
+              placeholder="you@example.com" />
           </div>
           <div class="form-group">
             <label for="password">Password</label>
@@ -83,24 +77,6 @@
           <button type="submit" class="auth-btn" id="loginBtn">Log In</button>
           <div class="auth-guest" style="margin-top: 14px">
             <a href="forgot-password.html">Forgot password?</a>
-          </div>
-        </form>
-
-        <!-- OTP login -->
-        <form id="otpForm" style="display: none" novalidate>
-          <div class="form-group">
-            <label for="otpIdentifier">Email or Phone</label>
-            <input type="text" id="otpIdentifier" class="form-control" autocomplete="username"
-              placeholder="you@example.com or 10-digit phone" />
-          </div>
-          <div class="form-group" id="otpCodeGroup" style="display: none">
-            <label for="otpCode">Enter 6-digit OTP</label>
-            <input type="text" id="otpCode" class="form-control" inputmode="numeric"
-              maxlength="6" pattern="[0-9]{6}" placeholder="••••••" autocomplete="one-time-code" />
-          </div>
-          <button type="submit" class="auth-btn" id="otpBtn">Send OTP</button>
-          <div class="auth-guest" id="otpResendWrap" style="margin-top: 14px; display: none">
-            <a href="#" id="otpResend">Resend OTP</a>
           </div>
         </form>
 
